@@ -44,9 +44,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lat..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Apr-1I-i9D">
+                                <rect key="frame" x="281" y="249" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4x6-DV-89w">
+                                <rect key="frame" x="274" y="295" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Apr-1I-i9D" firstAttribute="centerX" secondItem="gc0-6b-jrQ" secondAttribute="centerX" id="2Yk-iL-RCK"/>
+                            <constraint firstItem="4x6-DV-89w" firstAttribute="top" secondItem="Apr-1I-i9D" secondAttribute="bottom" constant="25" id="9ul-Ym-f1b"/>
                             <constraint firstItem="Tkn-x6-ejD" firstAttribute="centerX" secondItem="LDC-Fh-5As" secondAttribute="centerX" id="DrQ-mw-CB1"/>
                             <constraint firstItem="Tkn-x6-ejD" firstAttribute="top" secondItem="DgB-Z1-jIH" secondAttribute="bottom" constant="15" id="Pb2-56-pfh"/>
                             <constraint firstItem="DgB-Z1-jIH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="ROh-vK-Py7"/>
@@ -54,6 +68,8 @@
                             <constraint firstItem="gc0-6b-jrQ" firstAttribute="top" secondItem="LDC-Fh-5As" secondAttribute="bottom" constant="28" id="U89-GU-1A0"/>
                             <constraint firstItem="DgB-Z1-jIH" firstAttribute="centerX" secondItem="Tkn-x6-ejD" secondAttribute="centerX" id="ZIY-q9-BFM"/>
                             <constraint firstItem="LDC-Fh-5As" firstAttribute="centerX" secondItem="gc0-6b-jrQ" secondAttribute="centerX" id="eBR-mG-UaK"/>
+                            <constraint firstItem="Apr-1I-i9D" firstAttribute="top" secondItem="gc0-6b-jrQ" secondAttribute="bottom" constant="37" id="hb4-0I-9iN"/>
+                            <constraint firstItem="Apr-1I-i9D" firstAttribute="centerX" secondItem="4x6-DV-89w" secondAttribute="centerX" id="x6A-kj-G8J"/>
                             <constraint firstItem="LDC-Fh-5As" firstAttribute="top" secondItem="Tkn-x6-ejD" secondAttribute="bottom" constant="29" id="zS5-sM-m5n"/>
                         </constraints>
                     </view>
@@ -62,6 +78,8 @@
                         <outlet property="cityNameTextField" destination="DgB-Z1-jIH" id="Sod-P3-sqB"/>
                         <outlet property="cityTempLabel" destination="gc0-6b-jrQ" id="HRs-Ay-ajc"/>
                         <outlet property="getDataButton" destination="Tkn-x6-ejD" id="e5F-PN-30l"/>
+                        <outlet property="latText" destination="Apr-1I-i9D" id="eeV-Mr-h6b"/>
+                        <outlet property="longText" destination="4x6-DV-89w" id="Yt3-OV-7h4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

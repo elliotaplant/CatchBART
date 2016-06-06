@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 extension String {
     func replace(string:String, replacement:String) -> String {
@@ -18,27 +19,38 @@ extension String {
     }
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var cityNameTextField: UITextField!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityTempLabel: UILabel!
     @IBOutlet weak var getDataButton: UIButton!
+    
+    @IBOutlet weak var latText: UILabel!
+    @IBOutlet weak var longText: UILabel!
+    
+    let locationManager = CLLocationManager()
+    
     @IBAction func getDataButtonTriggered(sender: AnyObject) {
-        getWeatherFromApi()
+        self.locationManager.startUpdatingLocation()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getWeatherFromApi()
+        
+        self.locationManager.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func getWeatherFromApi() {
-        let cityName = cityNameTextField.text!.removeWhitespace()
-        getWeatherData("http://api.openweathermap.org/data/2.5/weather?q=" + cityName + ",us&APPID=<INSERT_API_KEY_HERE>")
+    func getWeatherFromApi(latitude: String, longitude: String) {
+        let latLong = "lat=" + latitude + "&lon=" + longitude
+        print(latLong)
+        getWeatherData("http://api.openweathermap.org/data/2.5/weather?" + latLong + "&APPID=6050c80ccbcf4ab2a284bad41b2d6ba8")
     }
 
     func getWeatherData(urlString: String) {
@@ -72,6 +84,33 @@ class ViewController: UIViewController {
         } catch let error as NSError {
             print(error)
         }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        self.locationManager.stopUpdatingLocation()
+//        let latitude = String(format: "%.2f", (manager.location?.coordinate.latitude)!)
+        if let location = manager.location as CLLocation? {
+            let latitude = String(format: "%.2f", location.coordinate.latitude)
+            let longitude = String(format: "%.2f", location.coordinate.longitude)
+            getWeatherFromApi(latitude, longitude: longitude)
+        }
+//        let longitude = String(format: "%.2f", (manager.location?.coordinate.longitude)!)
+        
+
+    }
+    
+    func displayLocationInfo(placemark: CLPlacemark) {
+        
+ 
+        print(placemark.locality)
+        print(placemark.postalCode)
+        print(placemark.administrativeArea)
+        print(placemark.country)
+        
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError!) {
+        print("Error: " + error.localizedDescription)
     }
 }
 
