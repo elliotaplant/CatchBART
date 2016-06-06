@@ -8,19 +8,37 @@
 
 import UIKit
 
+extension String {
+    func replace(string:String, replacement:String) -> String {
+        return self.stringByReplacingOccurrencesOfString(string, withString: replacement, options: NSStringCompareOptions.LiteralSearch, range: nil)
+    }
+    
+    func removeWhitespace() -> String {
+        return self.replace(" ", replacement: "")
+    }
+}
+
 class ViewController: UIViewController {
     @IBOutlet weak var cityNameTextField: UITextField!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityTempLabel: UILabel!
+    @IBOutlet weak var getDataButton: UIButton!
+    @IBAction func getDataButtonTriggered(sender: AnyObject) {
+        getWeatherFromApi()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getWeatherData("http://api.openweathermap.org/data/2.5/weather?q=London,uk")
+        getWeatherFromApi()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    func getWeatherFromApi() {
+        let cityName = cityNameTextField.text!.removeWhitespace()
+        getWeatherData("http://api.openweathermap.org/data/2.5/weather?q=" + cityName + ",us&APPID=<INSERT_API_KEY_HERE>")
     }
 
     func getWeatherData(urlString: String) {
@@ -36,20 +54,24 @@ class ViewController: UIViewController {
     }
 
     func setLabels(weatherData: NSData) {
-        var jsonError: NSError?
-        
-        let json = NSJSONSerialization.JSONObjectWithData(weatherData, options: nil, error: &jsonError) as NSDictionary
-        
-        if let name = json["name"] as? String {
-            cityNameLabel.text = name
-        }
-        
-        if let main = json["main"] as? NSDictionary {
-            if let temp = main["temp"] as? Double {
-                cityTempLabel.text = String(format: "%.1f", temp)
+        do {
+            let json = try NSJSONSerialization.JSONObjectWithData(weatherData, options:NSJSONReadingOptions.MutableContainers) as! NSDictionary
+            
+            if let name = json[("name")] as? String {
+                cityNameLabel.text = name
             }
+            if let main = json[("main")] as? NSDictionary {
+                if let temp = main[("temp")] as? Double {
+                    //convert kelvin to farenhiet
+                    let tempFarenheit = (temp * 9/5 - 459.67)
+                    
+                    cityTempLabel.text = String(format: "%.1f", tempFarenheit)
+                    
+                }
+            }
+        } catch let error as NSError {
+            print(error)
         }
-        
     }
 }
 

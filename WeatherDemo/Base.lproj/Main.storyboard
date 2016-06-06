@@ -28,6 +28,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tkn-x6-ejD">
                                 <rect key="frame" x="270" y="83" width="61" height="30"/>
                                 <state key="normal" title="Get Data"/>
+                                <connections>
+                                    <action selector="getDataButtonTriggered:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="ia2-ES-cgS"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading City..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDC-Fh-5As">
                                 <rect key="frame" x="246" y="142" width="109" height="21"/>
@@ -58,6 +61,7 @@
                         <outlet property="cityNameLabel" destination="LDC-Fh-5As" id="fHZ-6C-kxG"/>
                         <outlet property="cityNameTextField" destination="DgB-Z1-jIH" id="Sod-P3-sqB"/>
                         <outlet property="cityTempLabel" destination="gc0-6b-jrQ" id="HRs-Ay-ajc"/>
+                        <outlet property="getDataButton" destination="Tkn-x6-ejD" id="e5F-PN-30l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
