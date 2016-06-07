@@ -7,82 +7,71 @@
 //
 
 import UIKit
-import CoreLocation
-import WeatherDemo
-import Parser
 
-extension String {
-    func replace(string:String, replacement:String) -> String {
-        return self.stringByReplacingOccurrencesOfString(string, withString: replacement, options: NSStringCompareOptions.LiteralSearch, range: nil)
-    }
-    
-    func removeWhitespace() -> String {
-        return self.replace(" ", replacement: "")
-    }
-    
-    var floatValue: Float {
-        return (self as NSString).floatValue
-    }
-}
-
-struct Coord {
-    var lat: Float
-    var long: Float
-}
-
-struct Station {
-    var name: String
-    var abbr: String
-    var coord: Coord
-    mutating func clear() {
-        name = ""
-        abbr = ""
-        coord = Coord(lat: 0, long: 0)
-    }
-}
-
-class ViewController: UIViewController, CLLocationManagerDelegate, NSXMLParserDelegate {
+class ViewController: UIViewController {
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityTempLabel: UILabel!
     @IBOutlet weak var getDataButton: UIButton!
     
-    let locationManager = CLLocationManager()
-    var bartStationsInfo = [String:Coord]();
+
+    let stationsInfoParser = StationsInfoParser()
+    let stationEDTParser = StationEDTParser()
+    let locator = Locator()
     
+    var location = Coord(lat: 0, long: 0)
+    var bartStationsInfo = [String:Coord]()
+    var stations = [Station]()
+    var nearestStation = Station(name: "", abbr: "", coord: Coord(lat: 0, long: 0))
+
     @IBAction func getDataButtonTriggered(sender: AnyObject) {
-        self.locationManager.startUpdatingLocation()
+        locator.beginLocating()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.locationManager.delegate = self
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization()
-        self.locationManager.startUpdatingLocation()
+        locator.viewController = self
         
-        self.getBartStationsInfo();
+        // get bart stations info
+        print("getting bart info")
+        self.getBartStationsInfo()
+        
+        // get user location
+        print("getting user location")
+        self.getUserLocation()
+        // this will trigger finding the nearest station and displaying info
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    // XML Parsing
-    
-    
     // Getting Station Info
     func getBartStationsInfo() {
-        beginParsing();
-        print(stations[2])
+        self.stations = stationsInfoParser.getBartStationsInfo();
+        print(self.stations[0])
     }
     
-    func updateBartStationsInfo(stationsData: NSData) {
-
+    func getUserLocation() {
+        self.locator.beginLocating()
     }
     
-    func getScheduleForStation(station: String) {
-        getScheudleFromURL("http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + station + "&key=Q44H-5655-9ALT-DWE9");
+    func findNearestStationOuter(userLocation: Coord) {
+        print("finding nearest station")
+        if nearestStation.coord.lat == 0 {
+            nearestStation = findNearestStation(userLocation, stations: stations)
+            print("nearest station:", nearestStation)
+        }
+        // request edt from nearest station
+        self.getScheduleForStation(nearestStation.abbr)
+        // display etd info
+    }
+    
+    func getScheduleForStation(stationAbbr: String) {
+//        getScheudleFromURL("http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + stationAbbr + "&key=Q44H-5655-9ALT-DWE9");
+        stationEDTParser.getStationEDTs(stationAbbr)
     }
     
     // Weather info
@@ -139,17 +128,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, NSXMLParserDe
     }
     
     // Get Location
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.locationManager.stopUpdatingLocation()
-        if let location = manager.location as CLLocation? {
-            let latitude = String(format: "%.2f", location.coordinate.latitude)
-            let longitude = String(format: "%.2f", location.coordinate.longitude)
-            getWeatherFromApi(latitude, longitude: longitude)
-        }
-    }
-    
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Error: " + error.localizedDescription)
-    }
+
 }
 
