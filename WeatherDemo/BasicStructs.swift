@@ -24,7 +24,7 @@ struct Station {
     }
 }
 
-//struct Destination {
-//    var name: String
-//    var times: Array<Int>
-//}
+struct Destination {
+    var name: String
+    var times: Array<Int>
+}
