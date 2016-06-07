@@ -66,12 +66,14 @@ class ViewController: UIViewController {
         }
         // request edt from nearest station
         self.getScheduleForStation(nearestStation.abbr)
+        
+        
         // display etd info
     }
     
     func getScheduleForStation(stationAbbr: String) {
-//        getScheudleFromURL("http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + stationAbbr + "&key=Q44H-5655-9ALT-DWE9");
-        stationEDTParser.getStationEDTs(stationAbbr)
+        let schedule = stationEDTParser.getStationEDTs(stationAbbr)
+        print(schedule)
     }
     
     // Weather info

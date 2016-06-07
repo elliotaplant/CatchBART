@@ -53,43 +53,37 @@ class StationsInfoParser: NSObject, NSXMLParserDelegate {
 
 class StationEDTParser: NSObject, NSXMLParserDelegate {
     var parser = NSXMLParser()
-    var departures = [String : [Int]]()
+    var destinations = [Destination]()
     var element = NSString()
     var name = NSMutableString()
-    var abbr = NSMutableString()
-    var station = Station(name: "", abbr: "", coord: Coord(lat: 0, long: 0))
+    var destination = Destination(name: "", times: [])
     
-    func getStationEDTs(stationAbbr: String) -> [String : [Int]] {
-        departures = [:]
+    func getStationEDTs(stationAbbr: String) -> [Destination] {
+        destination.clear()
         parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + stationAbbr + "&key=Q44H-5655-9ALT-DWE9"))!)!
         parser.delegate = self
         parser.parse()
-        return departures
+        return destinations
     }
     
     func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
         element = elementName
-        if (elementName as NSString).isEqualToString("station") {
-            station.clear()
-            
+        if (elementName as NSString).isEqualToString("etd") {
+            destination = Destination(name: "", times: [])
         }
     }
     
     func parser(parser: NSXMLParser, foundCharacters string: String) {
-        if element.isEqualToString("name") {
-            station.name = string
-        } else if element.isEqualToString("abbr") {
-            station.abbr = string
-        } else if element.isEqualToString("gtfs_latitude") {
-            station.coord.lat = string.floatValue
-        } else if element.isEqualToString("gtfs_longitude") {
-            station.coord.long = string.floatValue
+        if element.isEqualToString("destination") {
+            destination.name = string
+        } else if element.isEqualToString("minutes") {
+            destination.times.append(string.intValue)
         }
     }
     
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
-        if (elementName as NSString).isEqualToString("station") {
-            departures += [station]
+        if (elementName as NSString).isEqualToString("etd") {
+            destinations += [destination]
         }
     }
 }

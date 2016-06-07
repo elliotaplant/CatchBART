@@ -27,4 +27,8 @@ struct Station {
 struct Destination {
     var name: String
     var times: Array<Int>
+    mutating func clear() {
+        name = ""
+        times = []
+    }
 }
