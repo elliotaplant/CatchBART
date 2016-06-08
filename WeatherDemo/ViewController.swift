@@ -8,12 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet weak var cityNameLabel: UILabel!
-    @IBOutlet weak var cityTempLabel: UILabel!
-    @IBOutlet weak var getDataButton: UIButton!
-    
-
+class ViewController: UITableViewController {
     let stationsInfoParser = StationsInfoParser()
     let stationEDTParser = StationEDTParser()
     let locator = Locator()
@@ -23,14 +18,10 @@ class ViewController: UIViewController {
     var stations = [Station]()
     var nearestStation = Station(name: "", abbr: "", coord: Coord(lat: 0, long: 0))
 
-    @IBAction func getDataButtonTriggered(sender: AnyObject) {
-        locator.beginLocating()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locator.viewController = self
+//        locator.viewController = self
         
         // get bart stations info
         print("getting bart info")
@@ -66,70 +57,11 @@ class ViewController: UIViewController {
         }
         // request edt from nearest station
         self.getScheduleForStation(nearestStation.abbr)
-        
-        
-        // display etd info
     }
     
     func getScheduleForStation(stationAbbr: String) {
         let schedule = stationEDTParser.getStationEDTs(stationAbbr)
         print(schedule)
     }
-    
-    // Weather info
-    func getWeatherFromApi(latitude: String, longitude: String) {
-        let latLong = "lat=" + latitude + "&lon=" + longitude
-        getWeatherData("http://api.openweathermap.org/data/2.5/weather?" + latLong + "&APPID=6050c80ccbcf4ab2a284bad41b2d6ba8")
-    }
-    
-
-    
-    func getScheudleFromURL(urlString: String){
-        let url = NSURL(string: urlString)
-        
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
-            dispatch_async(dispatch_get_main_queue(), {
-                self.setLabels(data!)
-            })
-        }
-        
-        task.resume()
-    }
-
-    func getWeatherData(urlString: String) {
-        let url = NSURL(string: urlString)
-        
-        let task = NSURLSession.sharedSession().dataTaskWithURL(url!) { (data, response, error) in
-            dispatch_async(dispatch_get_main_queue(), {
-                self.setLabels(data!)
-            })
-        }
-        
-        task.resume()
-    }
-
-    func setLabels(weatherData: NSData) {
-        do {
-            let json = try NSJSONSerialization.JSONObjectWithData(weatherData, options:NSJSONReadingOptions.MutableContainers) as! NSDictionary
-            
-            if let name = json[("name")] as? String {
-                cityNameLabel.text = name
-            }
-            if let main = json[("main")] as? NSDictionary {
-                if let temp = main[("temp")] as? Double {
-                    //convert kelvin to farenhiet
-                    let tempFarenheit = (temp * 9/5 - 459.67)
-                    
-                    cityTempLabel.text = String(format: "%.1f", tempFarenheit)
-                    
-                }
-            }
-        } catch let error as NSError {
-            print(error)
-        }
-    }
-    
-    // Get Location
-
 }
 

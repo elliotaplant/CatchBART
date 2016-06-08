@@ -77,7 +77,7 @@ class StationEDTParser: NSObject, NSXMLParserDelegate {
         if element.isEqualToString("destination") {
             destination.name = string
         } else if element.isEqualToString("minutes") {
-            destination.times.append(string.intValue)
+            destination.times.append(string)
         }
     }
     

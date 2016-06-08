@@ -26,7 +26,7 @@ struct Station {
 
 struct Destination {
     var name: String
-    var times: Array<Int>
+    var times: Array<String>
     mutating func clear() {
         name = ""
         times = []
