@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Destination Table View Controller-->
@@ -21,31 +22,41 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gun-Tr-oVM">
-                                            <rect key="frame" x="8" y="34" width="87" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gun-Tr-oVM">
+                                            <rect key="frame" x="28" y="34" width="87" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0u1-vk-Egw">
-                                            <rect key="frame" x="406" y="34" width="49" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="t1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKF-0i-heE">
+                                            <rect key="frame" x="528" y="34" width="14" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKF-0i-heE">
-                                            <rect key="frame" x="459" y="34" width="46" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="t2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auK-5v-Kk4">
+                                            <rect key="frame" x="564" y="34" width="16" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auK-5v-Kk4">
-                                            <rect key="frame" x="507" y="34" width="48" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="t0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0u1-vk-Egw">
+                                            <rect key="frame" x="485" y="34" width="17" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="0u1-vk-Egw" firstAttribute="baseline" secondItem="gun-Tr-oVM" secondAttribute="baseline" id="0kq-Df-g7q"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="0u1-vk-Egw" secondAttribute="trailing" constant="90" id="5zb-a3-jtU"/>
+                                        <constraint firstItem="gun-Tr-oVM" firstAttribute="centerY" secondItem="X8f-ff-5lL" secondAttribute="centerY" id="Smh-Ee-2Bg"/>
+                                        <constraint firstItem="0u1-vk-Egw" firstAttribute="baseline" secondItem="lKF-0i-heE" secondAttribute="baseline" id="Yur-jt-CdX"/>
+                                        <constraint firstItem="gun-Tr-oVM" firstAttribute="leading" secondItem="X8f-ff-5lL" secondAttribute="leadingMargin" constant="20" id="kbf-TX-9Ua"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="lKF-0i-heE" secondAttribute="trailing" constant="50" id="t2E-yq-rJ3"/>
+                                        <constraint firstItem="lKF-0i-heE" firstAttribute="baseline" secondItem="auK-5v-Kk4" secondAttribute="baseline" id="wjE-GD-4fn"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="auK-5v-Kk4" secondAttribute="trailing" constant="12" id="yhF-ta-5dm"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="gun-Tr-oVM" id="OKZ-No-2OQ"/>

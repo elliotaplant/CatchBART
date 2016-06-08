@@ -60,9 +60,9 @@ class DestinationTableViewController: UITableViewController {
         let destination = destinations[indexPath.row]
         
         cell.nameLabel.text = destination.name
-        cell.time0Label.text = destination.times[0]
-        cell.time1Label.text = destination.times[1]
-        cell.time2Label.text = destination.times[2]
+        cell.time0Label.text = destination.times.count > 0 ? destination.times[0] : ""
+        cell.time1Label.text = destination.times.count > 1 ? destination.times[1] : ""
+        cell.time2Label.text = destination.times.count > 2 ? destination.times[2] : ""
         
         return cell
     }

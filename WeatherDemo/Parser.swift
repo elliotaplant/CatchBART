@@ -76,7 +76,7 @@ class StationEDTParser: NSObject, NSXMLParserDelegate {
     func parser(parser: NSXMLParser, foundCharacters string: String) {
         if element.isEqualToString("destination") {
             destination.name = string
-        } else if element.isEqualToString("minutes") {
+        } else if (element.isEqualToString("minutes") && string != "Leaving"){
             destination.times.append(string)
         }
     }
