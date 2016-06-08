@@ -23,6 +23,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var nearestStation = Station(name: "", abbr: "", coord: Coord(lat: 0, long: 0))
     var travelTimes = TravelTimes(driving: 0, walking: 0, running: 0)
     
+    @IBOutlet weak var drivingTime: UILabel!
+    @IBOutlet weak var runningTime: UILabel!
+    @IBOutlet weak var walkingTime: UILabel!
 
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -50,10 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
     }
     
-
-
     // MARK: - Table view data source
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -104,7 +104,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             nearestStation = findNearestStation(userLocation, stations: stations, travelTimes: &travelTimes)
         }
         headerLabel.text = nearestStation.name
-        // request edt from nearest station
+        
+        drivingTime.text = String(travelTimes.driving) + " mins"
+        runningTime.text = String(travelTimes.running) + " mins"
+        walkingTime.text = String(travelTimes.walking) + " mins"
+        
         self.getScheduleForStation(nearestStation.abbr)
     }
     

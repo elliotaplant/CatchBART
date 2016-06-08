@@ -39,9 +39,9 @@ func findNearestStation(userLocation: Coord, stations: [Station], inout travelTi
         }
     }
     
-    travelTimes.driving = Int(3.554*log(leastDistance)/log(2.71828) + 5)
-    travelTimes.walking = Int(15.275*leastDistance+9.12)
-    travelTimes.running = travelTimes.running/2
+    travelTimes.driving = Int(max(3.554*log(leastDistance)/log(2.71828) + 5, 2))
+    travelTimes.walking = Int(max(15.275*leastDistance+9.12, 2))
+    travelTimes.running = max(travelTimes.running/2, 2)
     
     return nearestStation;
 }
