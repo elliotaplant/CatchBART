@@ -345,7 +345,7 @@
                         <outlet property="headerLabel" destination="YeL-mT-cNT" id="50t-pn-BS7"/>
                         <outlet property="headerView" destination="DP4-gp-8Am" id="yAc-nY-caT"/>
                         <outlet property="runningTime" destination="46i-J0-pQh" id="Fyq-qz-J4s"/>
-                        <outlet property="tableView" destination="S8i-hc-q4d" id="2C5-cq-vcX"/>
+                        <outlet property="tableView" destination="S8i-hc-q4d" id="XPu-NE-gSj"/>
                         <outlet property="walkingTime" destination="G22-hR-6DP" id="Mpr-ib-tBX"/>
                     </connections>
                 </viewController>

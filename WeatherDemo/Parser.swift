@@ -59,7 +59,7 @@ class StationEDTParser: NSObject, NSXMLParserDelegate {
     var destination = Destination(name: "", times: [])
     
     func getStationEDTs(stationAbbr: String) -> [Destination] {
-        destination.clear()
+        destinations.removeAll()
         parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + stationAbbr + "&key=Q44H-5655-9ALT-DWE9"))!)!
         parser.delegate = self
         parser.parse()
@@ -86,7 +86,7 @@ class StationEDTParser: NSObject, NSXMLParserDelegate {
             while destination.times.count < 3 {
                 destination.times.append("")
             }
-            destinations += [destination]
+            destinations.append(destination)
         }
     }
 }

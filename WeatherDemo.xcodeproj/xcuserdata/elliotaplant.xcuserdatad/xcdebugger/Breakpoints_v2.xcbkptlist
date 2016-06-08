@@ -15,8 +15,10 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
+                  symbolName = "CFCharacterSetHasMemberInPlane"
+                  moduleName = "CoreFoundation"
                   usesParentBreakpointCondition = "Yes"
-                  offsetFromSymbolStart = "0">
+                  offsetFromSymbolStart = "475">
                </Location>
             </Locations>
          </BreakpointContent>

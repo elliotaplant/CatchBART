@@ -27,6 +27,7 @@ extension String {
 }
 
 func findNearestStation(userLocation: Coord, stations: [Station], inout travelTimes: TravelTimes) -> Station {
+    print("in fNS")
     var nearestStation = Station(name: "No Nearby Station", abbr: "NNST", coord: Coord(lat: 0, long: 0))
     var leastDistance = Float.infinity
     var currentDist : Float
@@ -40,7 +41,7 @@ func findNearestStation(userLocation: Coord, stations: [Station], inout travelTi
     }
     
     travelTimes.driving = Int(max(3.554*log(leastDistance)/log(2.71828) + 5, 2))
-    travelTimes.walking = Int(max(15.275*leastDistance+9.12, 2))
+    travelTimes.walking = Int(max(15.275*leastDistance+5.12, 2))
     travelTimes.running = max(travelTimes.running/2, 2)
     
     return nearestStation;

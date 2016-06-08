@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // Properties:
@@ -31,8 +33,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        return refreshControl
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.addSubview(self.refreshControl)
+        
         locator.viewController = self
         
         // get bart stations info
@@ -40,6 +51,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // get user location
         self.getUserLocation()
+        print("in vdl")
         
         // MARK: - Header View styling
         headerView.layer.zPosition = 1;
@@ -96,10 +108,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func getUserLocation() {
+        print("in GUL")
         self.locator.beginLocating()
     }
     
     func findNearestStationOuter(userLocation: Coord) {
+        print("in fNSO")
         if nearestStation.coord.lat == 0 {
             nearestStation = findNearestStation(userLocation, stations: stations, travelTimes: &travelTimes)
         }
@@ -113,10 +127,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func getScheduleForStation(stationAbbr: String) {
-        if destinations.count == 0 {
-            destinations = stationEDTParser.getStationEDTs(stationAbbr)
-            tableView.reloadData()
-        }
+        destinations = stationEDTParser.getStationEDTs(stationAbbr)
+        tableView.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
+    // Pull to refresh
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        getUserLocation()
     }
 }
 
