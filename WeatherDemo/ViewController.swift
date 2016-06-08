@@ -22,8 +22,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var stations = [Station]()
     var nearestStation = Station(name: "", abbr: "", coord: Coord(lat: 0, long: 0))
     
-    @IBOutlet
-    var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +34,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // get user location
         self.getUserLocation()
+        
+        // MARK: - Header View styling
+        
+        headerView.layer.zPosition = 1;
+        headerView.layer.shadowColor = UIColor.blackColor().CGColor
+        headerView.layer.shadowOpacity = 0.3
+        headerView.layer.shadowOffset = CGSizeZero
+        headerView.layer.shadowRadius = 5
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+
 
     // MARK: - Table view data source
     
@@ -61,6 +71,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.time1Label.text = destination.times.count > 1 ? destination.times[1] : ""
         cell.time2Label.text = destination.times.count > 2 ? destination.times[2] : ""
         
+        if (destination.times.count > 0 && Int(destination.times[0]) < 10) {
+            cell.layer.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.2).CGColor
+        } else {
+            cell.layer.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.2).CGColor
+        }
+
         return cell
     }
     
