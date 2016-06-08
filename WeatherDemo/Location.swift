@@ -24,19 +24,15 @@ class Locator: NSObject, CLLocationManagerDelegate {
     
     
     func beginLocating() {
-        print("in BL")
         self.locationManager.requestLocation()
     }
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.locationManager.stopUpdatingLocation()
         if let location = manager.location as CLLocation? {
-            print("could cast location")
+            self.locationManager.stopUpdatingLocation()
             userLocation.lat = Float(location.coordinate.latitude)
             userLocation.long = Float(location.coordinate.longitude)
             self.viewController!.findNearestStationOuter(userLocation)
-        } else {
-            print("could not cast location")
         }
     }
     

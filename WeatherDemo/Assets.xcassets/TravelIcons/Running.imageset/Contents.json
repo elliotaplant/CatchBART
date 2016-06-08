@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "man-sprinting.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "man-sprinting.png",
       "scale" : "2x"
     },
     {

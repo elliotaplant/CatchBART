@@ -43,6 +43,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.addSubview(self.refreshControl)
+        self.tableView.backgroundColor = UIColor.clearColor()
         
         locator.viewController = self
         
@@ -51,10 +52,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // get user location
         self.getUserLocation()
-        print("in vdl")
         
         // MARK: - Header View styling
-        headerView.layer.zPosition = 1;
+//        headerView.layer.zPosition = 1;
         headerView.layer.shadowColor = UIColor.blackColor().CGColor
         headerView.layer.shadowOpacity = 0.3
         headerView.layer.shadowOffset = CGSizeMake(0.0, 6.0)
@@ -88,6 +88,32 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let tableViewHeaderHeight = 30
+        let DynamicView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, CGFloat(tableViewHeaderHeight)))
+        DynamicView.backgroundColor = UIColor.lightGrayColor()
+//            UIColor(red:0.58, green:0.81, blue:0.97, alpha:1.0)
+        
+        let label1Width = 100.0
+        let label1 = UILabel(frame: CGRectMake(0, 0, CGFloat(label1Width), 20))
+        label1.center = CGPointMake(CGFloat(5 + label1Width/2), CGFloat(tableViewHeaderHeight/2))
+        label1.textAlignment = NSTextAlignment.Left
+        label1.text = "Destination"
+        label1.textColor = UIColor.darkGrayColor()
+        DynamicView.addSubview(label1)
+        
+        let label2Width = 200.0
+        let label2 = UILabel(frame: CGRectMake(0, 0, CGFloat(label2Width), 20))
+        label2.center = CGPointMake(self.view.frame.size.width - CGFloat(5 + label2Width/2), CGFloat(tableViewHeaderHeight/2))
+        label2.textAlignment = NSTextAlignment.Right
+        label2.text = "Minutes to Departure"
+        label2.textColor = UIColor.darkGrayColor()
+
+        DynamicView.addSubview(label2)
+
+        return DynamicView
+    }
+    
     func setTimeLabel(label: UILabel, time: String, number: Int) {
         label.text = time
         label.layer.cornerRadius = number == 0 ? 47/2 : 26/2
@@ -108,12 +134,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func getUserLocation() {
-        print("in GUL")
         self.locator.beginLocating()
     }
     
     func findNearestStationOuter(userLocation: Coord) {
-        print("in fNSO")
         if nearestStation.coord.lat == 0 {
             nearestStation = findNearestStation(userLocation, stations: stations, travelTimes: &travelTimes)
         }
