@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -88,19 +89,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIx-Qa-Muw">
-                                                    <rect key="frame" x="455" y="35.5" width="47" height="25.5"/>
+                                                    <rect key="frame" x="455" y="15" width="47" height="47"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="25.5" id="2sk-m0-68d"/>
                                                         <constraint firstAttribute="height" constant="40" id="L4n-gm-Q7h"/>
                                                         <constraint firstAttribute="width" constant="47" id="l5l-0A-u5h"/>
                                                         <constraint firstAttribute="width" constant="47" id="qi8-EI-dv1"/>
+                                                        <constraint firstAttribute="width" secondItem="EIx-Qa-Muw" secondAttribute="height" multiplier="1:1" id="zVC-gI-Qgh"/>
                                                     </constraints>
                                                     <attributedString key="attributedText">
                                                         <fragment content="t0">
                                                             <attributes>
                                                                 <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                 <font key="NSFont" size="22" name="HelveticaNeue"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
@@ -112,14 +113,21 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="t1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aD-Oo-WuS">
-                                                    <rect key="frame" x="528" y="40.5" width="14" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="t2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25X-pd-c5r">
+                                                    <rect key="frame" x="554" y="25" width="28" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="25X-pd-c5r" secondAttribute="height" multiplier="1:1" constant="1" id="9Tc-aR-NFS"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="t2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25X-pd-c5r">
-                                                    <rect key="frame" x="566" y="41" width="16" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="t1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aD-Oo-WuS">
+                                                    <rect key="frame" x="515" y="25.5" width="27" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="3aD-Oo-WuS" secondAttribute="height" multiplier="1:1" constant="1" id="bOf-pw-U0a"/>
+                                                        <constraint firstAttribute="height" constant="26" id="ur5-xX-2Ia"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -130,16 +138,17 @@
                                                 <constraint firstItem="3aD-Oo-WuS" firstAttribute="baseline" secondItem="25X-pd-c5r" secondAttribute="baseline" id="An6-zo-HHU"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="EIx-Qa-Muw" secondAttribute="bottom" id="BYo-IM-JJr"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="3aD-Oo-WuS" secondAttribute="trailing" constant="50" id="C0a-zk-afU"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="3aD-Oo-WuS" secondAttribute="bottom" id="Cvb-F7-tlM"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="EIx-Qa-Muw" secondAttribute="trailing" constant="90" id="P3s-CM-A7B"/>
+                                                <constraint firstItem="25X-pd-c5r" firstAttribute="height" secondItem="3aD-Oo-WuS" secondAttribute="height" constant="1" id="HWH-0T-HhP"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="EIx-Qa-Muw" secondAttribute="trailing" constant="90" id="LzX-TF-RMm"/>
+                                                <constraint firstItem="25X-pd-c5r" firstAttribute="centerY" secondItem="3aD-Oo-WuS" secondAttribute="centerY" id="Oif-5O-2uQ"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="EIx-Qa-Muw" secondAttribute="trailing" constant="90" id="QqG-0G-d7u"/>
                                                 <constraint firstAttribute="topMargin" secondItem="r8m-eY-ZSK" secondAttribute="top" id="RQI-Ij-1Nc"/>
                                                 <constraint firstItem="EIx-Qa-Muw" firstAttribute="top" secondItem="QVF-Ig-QxT" secondAttribute="topMargin" constant="7" id="TSn-SV-oJV"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="25X-pd-c5r" secondAttribute="bottom" id="Yhb-3Q-z6q"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="25X-pd-c5r" secondAttribute="trailing" constant="10" id="ZAQ-Kp-eDK"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="3aD-Oo-WuS" secondAttribute="trailing" constant="50" id="lHF-5y-opi"/>
                                                 <constraint firstItem="r8m-eY-ZSK" firstAttribute="baseline" secondItem="3aD-Oo-WuS" secondAttribute="baseline" id="oEP-Iz-Kp3"/>
                                                 <constraint firstItem="r8m-eY-ZSK" firstAttribute="top" secondItem="QVF-Ig-QxT" secondAttribute="topMargin" constant="16" id="ooy-ql-Hsj"/>
+                                                <constraint firstItem="3aD-Oo-WuS" firstAttribute="centerY" secondItem="EIx-Qa-Muw" secondAttribute="centerY" id="r50-wy-Wel"/>
                                                 <constraint firstItem="3aD-Oo-WuS" firstAttribute="centerY" secondItem="QVF-Ig-QxT" secondAttribute="centerY" id="tIl-Po-jQR"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="r8m-eY-ZSK" secondAttribute="leading" id="vIN-qj-YkP"/>
                                                 <constraint firstItem="25X-pd-c5r" firstAttribute="centerY" secondItem="QVF-Ig-QxT" secondAttribute="centerY" id="vLl-Sn-kcz"/>

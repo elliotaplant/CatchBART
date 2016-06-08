@@ -36,12 +36,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.getUserLocation()
         
         // MARK: - Header View styling
-        
         headerView.layer.zPosition = 1;
         headerView.layer.shadowColor = UIColor.blackColor().CGColor
         headerView.layer.shadowOpacity = 0.3
-        headerView.layer.shadowOffset = CGSizeZero
-        headerView.layer.shadowRadius = 5
+        headerView.layer.shadowOffset = CGSizeMake(0.0, 6.0)
+        headerView.layer.shadowRadius = 3
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,17 +66,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let destination = destinations[indexPath.row]
         
         cell.nameLabel.text = destination.name
-        cell.time0Label.text = destination.times.count > 0 ? destination.times[0] : ""
-        cell.time1Label.text = destination.times.count > 1 ? destination.times[1] : ""
-        cell.time2Label.text = destination.times.count > 2 ? destination.times[2] : ""
-        
-        if (destination.times.count > 0 && Int(destination.times[0]) < 10) {
-            cell.layer.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.2).CGColor
-        } else {
-            cell.layer.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.2).CGColor
-        }
+        setTimeLabel(cell.time0Label, time: destination.times[0], number: 0)
+        setTimeLabel(cell.time1Label, time: destination.times[1], number: 1)
+        setTimeLabel(cell.time2Label, time: destination.times[2], number: 2)
 
         return cell
+    }
+    
+    func setTimeLabel(label: UILabel, time: String, number: Int) {
+        label.text = time
+        label.layer.cornerRadius = number == 0 ? 47/2 : 26/2
+        if time != "" {
+            if time.intValue < 5 {
+                label.layer.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.2).CGColor
+            } else if time.intValue < 10 {
+                label.layer.backgroundColor = UIColor.yellowColor().colorWithAlphaComponent(0.2).CGColor
+            } else {
+                label.layer.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.2).CGColor
+            }
+        }
     }
     
     // Getting Station Info
@@ -98,7 +105,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func getScheduleForStation(stationAbbr: String) {
-        destinations += stationEDTParser.getStationEDTs(stationAbbr)
+        destinations = stationEDTParser.getStationEDTs(stationAbbr)
         tableView.reloadData()
     }
 }

@@ -83,6 +83,9 @@ class StationEDTParser: NSObject, NSXMLParserDelegate {
     
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if (elementName as NSString).isEqualToString("etd") {
+            while destination.times.count < 3 {
+                destination.times.append("")
+            }
             destinations += [destination]
         }
     }
