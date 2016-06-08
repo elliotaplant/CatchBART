@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // Properties:
     var destinations = [Destination]()
@@ -22,18 +22,17 @@ class ViewController: UITableViewController {
     var stations = [Station]()
     var nearestStation = Station(name: "", abbr: "", coord: Coord(lat: 0, long: 0))
     
+    @IBOutlet
+    var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         locator.viewController = self
         
         // get bart stations info
-        print("getting bart info")
         self.getBartStationsInfo()
         
         // get user location
-        print("getting user location")
         self.getUserLocation()
     }
     
@@ -43,15 +42,15 @@ class ViewController: UITableViewController {
 
     // MARK: - Table view data source
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return destinations.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "DestinationTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! DestinationTableViewCell
         // Fetches the appropriate meal for the data source layout.
@@ -68,7 +67,6 @@ class ViewController: UITableViewController {
     // Getting Station Info
     func getBartStationsInfo() {
         self.stations = stationsInfoParser.getBartStationsInfo();
-        print(self.stations[0])
     }
     
     func getUserLocation() {
@@ -76,10 +74,8 @@ class ViewController: UITableViewController {
     }
     
     func findNearestStationOuter(userLocation: Coord) {
-        print("finding nearest station")
         if nearestStation.coord.lat == 0 {
             nearestStation = findNearestStation(userLocation, stations: stations)
-            print("nearest station:", nearestStation)
         }
         // request edt from nearest station
         self.getScheduleForStation(nearestStation.abbr)
@@ -87,8 +83,7 @@ class ViewController: UITableViewController {
     
     func getScheduleForStation(stationAbbr: String) {
         destinations += stationEDTParser.getStationEDTs(stationAbbr)
-        print("destinations:", destinations)
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 }
 

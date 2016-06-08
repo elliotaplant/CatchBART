@@ -31,7 +31,6 @@ class Locator: NSObject, CLLocationManagerDelegate {
         if let location = manager.location as CLLocation? {
             userLocation.lat = Float(location.coordinate.latitude)
             userLocation.long = Float(location.coordinate.longitude)
-            print("user location:", userLocation)
             self.viewController!.findNearestStationOuter(userLocation)
         }
     }
