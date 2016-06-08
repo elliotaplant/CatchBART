@@ -21,8 +21,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var bartStationsInfo = [String:Coord]()
     var stations = [Station]()
     var nearestStation = Station(name: "", abbr: "", coord: Coord(lat: 0, long: 0))
+    var travelTimes = TravelTimes(driving: 0, walking: 0, running: 0)
     
-    @IBOutlet var tableView: UITableView!
+
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
     
     override func viewDidLoad() {
@@ -98,15 +101,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func findNearestStationOuter(userLocation: Coord) {
         if nearestStation.coord.lat == 0 {
-            nearestStation = findNearestStation(userLocation, stations: stations)
+            nearestStation = findNearestStation(userLocation, stations: stations, travelTimes: &travelTimes)
         }
+        headerLabel.text = nearestStation.name
         // request edt from nearest station
         self.getScheduleForStation(nearestStation.abbr)
     }
     
     func getScheduleForStation(stationAbbr: String) {
-        destinations = stationEDTParser.getStationEDTs(stationAbbr)
-        tableView.reloadData()
+        if destinations.count == 0 {
+            destinations = stationEDTParser.getStationEDTs(stationAbbr)
+            tableView.reloadData()
+        }
     }
 }
 

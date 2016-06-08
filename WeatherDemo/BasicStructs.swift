@@ -24,6 +24,12 @@ struct Station {
     }
 }
 
+struct TravelTimes {
+    var driving: Int
+    var walking: Int
+    var running: Int
+}
+
 struct Destination {
     var name: String
     var times: Array<String>

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 extension String {
     func replace(string:String, replacement:String) -> String {
         return self.stringByReplacingOccurrencesOfString(string, withString: replacement, options: NSStringCompareOptions.LiteralSearch, range: nil)
@@ -27,7 +26,7 @@ extension String {
     }
 }
 
-func findNearestStation(userLocation: Coord, stations: [Station]) -> Station {
+func findNearestStation(userLocation: Coord, stations: [Station], inout travelTimes: TravelTimes) -> Station {
     var nearestStation = Station(name: "No Nearby Station", abbr: "NNST", coord: Coord(lat: 0, long: 0))
     var leastDistance = Float.infinity
     var currentDist : Float
@@ -39,6 +38,10 @@ func findNearestStation(userLocation: Coord, stations: [Station]) -> Station {
             nearestStation = station
         }
     }
+    
+    travelTimes.driving = Int(3.554*log(leastDistance)/log(2.71828) + 5)
+    travelTimes.walking = Int(15.275*leastDistance+9.12)
+    travelTimes.running = travelTimes.running/2
     
     return nearestStation;
 }
