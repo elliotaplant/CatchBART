@@ -325,7 +325,6 @@
                             <constraint firstItem="S8i-hc-q4d" firstAttribute="top" secondItem="DP4-gp-8Am" secondAttribute="bottom" id="fQ4-aq-HjG"/>
                             <constraint firstItem="Le1-1F-2py" firstAttribute="trailing" secondItem="S8i-hc-q4d" secondAttribute="trailing" id="g2P-X1-kj9"/>
                             <constraint firstItem="DP4-gp-8Am" firstAttribute="leading" secondItem="Fc0-AI-jCS" secondAttribute="leading" id="gYB-7j-4HY"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="S8i-hc-q4d" secondAttribute="trailing" constant="-20" id="yBj-d0-B2K"/>
                         </constraints>
                     </view>
                     <connections>
