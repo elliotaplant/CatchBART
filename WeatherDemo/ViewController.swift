@@ -9,6 +9,10 @@
 import UIKit
 
 class ViewController: UITableViewController {
+    
+    // Properties:
+    var destinations = [Destination]()
+    
     let stationsInfoParser = StationsInfoParser()
     let stationEDTParser = StationEDTParser()
     let locator = Locator()
@@ -17,11 +21,12 @@ class ViewController: UITableViewController {
     var bartStationsInfo = [String:Coord]()
     var stations = [Station]()
     var nearestStation = Station(name: "", abbr: "", coord: Coord(lat: 0, long: 0))
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        locator.viewController = self
+        
+        locator.viewController = self
         
         // get bart stations info
         print("getting bart info")
@@ -30,13 +35,34 @@ class ViewController: UITableViewController {
         // get user location
         print("getting user location")
         self.getUserLocation()
-        // this will trigger finding the nearest station and displaying info
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+
+    // MARK: - Table view data source
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return destinations.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "DestinationTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! DestinationTableViewCell
+        // Fetches the appropriate meal for the data source layout.
+        let destination = destinations[indexPath.row]
+        
+        cell.nameLabel.text = destination.name
+        cell.time0Label.text = destination.times.count > 0 ? destination.times[0] : ""
+        cell.time1Label.text = destination.times.count > 1 ? destination.times[1] : ""
+        cell.time2Label.text = destination.times.count > 2 ? destination.times[2] : ""
+        
+        return cell
     }
     
     // Getting Station Info
@@ -60,8 +86,10 @@ class ViewController: UITableViewController {
     }
     
     func getScheduleForStation(stationAbbr: String) {
-        let schedule = stationEDTParser.getStationEDTs(stationAbbr)
-        print(schedule)
+        destinations += stationEDTParser.getStationEDTs(stationAbbr)
+        print("destinations:", destinations)
+        self.tableView.reloadData()
     }
 }
+
 

@@ -12,7 +12,7 @@ import CoreLocation
 class Locator: NSObject, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var userLocation = Coord(lat: 0, long: 0)
-    var viewController : DestinationTableViewController?
+    var viewController : ViewController?
     
     override init() {
         super.init()

@@ -26,7 +26,7 @@ class DestinationTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        locator.viewController = self
+//        locator.viewController = self
         
         // get bart stations info
         print("getting bart info")

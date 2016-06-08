@@ -15,10 +15,6 @@ class DestinationTableViewCell: UITableViewCell {
     @IBOutlet weak var time0Label: UILabel!
     @IBOutlet weak var time1Label: UILabel!
     @IBOutlet weak var time2Label: UILabel!
-
-    //    @IBOutlet weak var time0Label: UILabel!
-    //    @IBOutlet weak var time1Label: UILabel!
-    //    @IBOutlet weak var time2Label: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
