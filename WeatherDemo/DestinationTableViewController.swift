@@ -35,12 +35,10 @@ class DestinationTableViewController: UITableViewController {
         // get user location
         print("getting user location")
         self.getUserLocation()
-        destinations += [Destination(name: "The Bay", times: ["4", "2", "0"])]
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
