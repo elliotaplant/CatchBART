@@ -54,7 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.getUserLocation()
         
         // MARK: - Header View styling
-//        headerView.layer.zPosition = 1;
+        headerView.layer.zPosition = 1;
         headerView.layer.shadowColor = UIColor.blackColor().CGColor
         headerView.layer.shadowOpacity = 0.3
         headerView.layer.shadowOffset = CGSizeMake(0.0, 6.0)
@@ -88,43 +88,50 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let tableViewHeaderHeight = 30
-        let DynamicView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, CGFloat(tableViewHeaderHeight)))
-        DynamicView.backgroundColor = UIColor.lightGrayColor()
-//            UIColor(red:0.58, green:0.81, blue:0.97, alpha:1.0)
-        
-        let label1Width = 100.0
-        let label1 = UILabel(frame: CGRectMake(0, 0, CGFloat(label1Width), 20))
-        label1.center = CGPointMake(CGFloat(5 + label1Width/2), CGFloat(tableViewHeaderHeight/2))
-        label1.textAlignment = NSTextAlignment.Left
-        label1.text = "Destination"
-        label1.textColor = UIColor.darkGrayColor()
-        DynamicView.addSubview(label1)
-        
-        let label2Width = 200.0
-        let label2 = UILabel(frame: CGRectMake(0, 0, CGFloat(label2Width), 20))
-        label2.center = CGPointMake(self.view.frame.size.width - CGFloat(5 + label2Width/2), CGFloat(tableViewHeaderHeight/2))
-        label2.textAlignment = NSTextAlignment.Right
-        label2.text = "Minutes to Departure"
-        label2.textColor = UIColor.darkGrayColor()
-
-        DynamicView.addSubview(label2)
-
-        return DynamicView
-    }
+//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let tableViewHeaderHeight = 30
+//        let DynamicView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, CGFloat(tableViewHeaderHeight)))
+//        DynamicView.backgroundColor = UIColor.lightGrayColor()
+//        
+//        let label1Width = 100.0
+//        let label1 = UILabel(frame: CGRectMake(0, 0, CGFloat(label1Width), 20))
+//        label1.center = CGPointMake(CGFloat(5 + label1Width/2), CGFloat(tableViewHeaderHeight/2))
+//        label1.textAlignment = NSTextAlignment.Left
+//        label1.text = "Destination"
+//        label1.textColor = UIColor.darkGrayColor()
+//        DynamicView.addSubview(label1)
+//        
+//        let label2Width = 200.0
+//        let label2 = UILabel(frame: CGRectMake(0, 0, CGFloat(label2Width), 20))
+//        label2.center = CGPointMake(self.view.frame.size.width - CGFloat(5 + label2Width/2), CGFloat(tableViewHeaderHeight/2))
+//        label2.textAlignment = NSTextAlignment.Right
+//        label2.text = "Minutes to Departure"
+//        label2.textColor = UIColor.darkGrayColor()
+//
+//        DynamicView.addSubview(label2)
+//
+//        return DynamicView
+//    }
     
     func setTimeLabel(label: UILabel, time: String, number: Int) {
         label.text = time
         label.layer.cornerRadius = number == 0 ? 47/2 : 26/2
+
         if time != "" {
-            if time.intValue < 5 {
+            label.layer.borderWidth = 1
+            label.layer.borderColor = UIColor.lightGrayColor().CGColor
+            
+            if time.intValue < travelTimes.running {
                 label.layer.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.2).CGColor
-            } else if time.intValue < 10 {
+            } else if time.intValue < travelTimes.walking {
                 label.layer.backgroundColor = UIColor.yellowColor().colorWithAlphaComponent(0.2).CGColor
             } else {
                 label.layer.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.2).CGColor
             }
+        } else {
+            label.layer.borderWidth = 0
+            label.layer.borderColor = UIColor.clearColor().CGColor
+            label.layer.backgroundColor = UIColor.clearColor().CGColor
         }
     }
     
