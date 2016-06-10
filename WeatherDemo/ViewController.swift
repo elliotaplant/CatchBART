@@ -24,11 +24,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var stations = [Station]()
     var nearestStation = Station(name: "", abbr: "", coord: Coord(lat: 0, long: 0))
     var travelTimes = TravelTimes(driving: 0, walking: 0, running: 0)
+    var currentModeOfTransportation = ModeOfTransportation.Walking
+    var travelTime = 0
+    var defaultColor = UIColor(red: 14, green: 122, blue: 254)
     
     @IBOutlet weak var drivingTime: UILabel!
+    @IBOutlet weak var drivingImage: UIImageView!
     @IBOutlet weak var runningTime: UILabel!
+    @IBOutlet weak var runningImage: UIImageView!
     @IBOutlet weak var walkingTime: UILabel!
+    @IBOutlet weak var walkingImage: UIImageView!
 
+    @IBAction func drivingButtonAction(sender: AnyObject) {
+        changeModeOfTransportation(ModeOfTransportation.Driving)
+    }
+    @IBAction func runningButtonAction(sender: AnyObject) {
+        changeModeOfTransportation(ModeOfTransportation.Running)
+    }
+    @IBAction func walkingActionButton(sender: AnyObject) {
+        changeModeOfTransportation(ModeOfTransportation.Walking)
+    }
+    
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
@@ -52,6 +68,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         // get user location
         self.getUserLocation()
+        
+        // Set up travel time indicaiton
+        changeModeOfTransportation(ModeOfTransportation.Walking)
         
         // MARK: - Header View styling
         headerView.layer.zPosition = 1;
@@ -88,42 +107,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let tableViewHeaderHeight = 30
-//        let DynamicView = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, CGFloat(tableViewHeaderHeight)))
-//        DynamicView.backgroundColor = UIColor.lightGrayColor()
-//        
-//        let label1Width = 100.0
-//        let label1 = UILabel(frame: CGRectMake(0, 0, CGFloat(label1Width), 20))
-//        label1.center = CGPointMake(CGFloat(5 + label1Width/2), CGFloat(tableViewHeaderHeight/2))
-//        label1.textAlignment = NSTextAlignment.Left
-//        label1.text = "Destination"
-//        label1.textColor = UIColor.darkGrayColor()
-//        DynamicView.addSubview(label1)
-//        
-//        let label2Width = 200.0
-//        let label2 = UILabel(frame: CGRectMake(0, 0, CGFloat(label2Width), 20))
-//        label2.center = CGPointMake(self.view.frame.size.width - CGFloat(5 + label2Width/2), CGFloat(tableViewHeaderHeight/2))
-//        label2.textAlignment = NSTextAlignment.Right
-//        label2.text = "Minutes to Departure"
-//        label2.textColor = UIColor.darkGrayColor()
-//
-//        DynamicView.addSubview(label2)
-//
-//        return DynamicView
-//    }
-    
     func setTimeLabel(label: UILabel, time: String, number: Int) {
         label.text = time
         label.layer.cornerRadius = number == 0 ? 47/2 : 26/2
-
+        
         if time != "" {
             label.layer.borderWidth = 1
             label.layer.borderColor = UIColor.blackColor().CGColor
             
-            if time.intValue < travelTimes.running {
+            if time.intValue < travelTime {
                 label.layer.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.2).CGColor
-            } else if time.intValue < travelTimes.walking {
+            } else if time.intValue < travelTime + 5 {
                 label.layer.backgroundColor = UIColor.yellowColor().colorWithAlphaComponent(0.2).CGColor
             } else {
                 label.layer.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.2).CGColor
@@ -166,6 +160,36 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // Pull to refresh
     func handleRefresh(refreshControl: UIRefreshControl) {
         getUserLocation()
+    }
+    
+    // Change mode of transportation
+    func changeModeOfTransportation(mode: ModeOfTransportation) {
+        currentModeOfTransportation = mode
+        
+        drivingTime.textColor = UIColor.blackColor()
+        runningTime.textColor = UIColor.blackColor()
+        walkingTime.textColor = UIColor.blackColor()
+        
+        walkingImage.image = UIImage(named: "Walking")
+        runningImage.image = UIImage(named: "Running")
+        drivingImage.image = UIImage(named: "Driving")
+        
+        switch mode {
+        case ModeOfTransportation.Walking:
+            travelTime = travelTimes.walking
+            walkingImage.image = UIImage(named: "one-man-walking-selected")
+            walkingTime.textColor = defaultColor
+        case ModeOfTransportation.Running:
+            travelTime = travelTimes.running
+            runningImage.image = UIImage(named: "man-sprinting-selected")
+            runningTime.textColor = defaultColor
+        case ModeOfTransportation.Driving:
+            travelTime = travelTimes.driving
+            drivingImage.image = UIImage(named: "car-trip-selected")
+            drivingTime.textColor = defaultColor
+        }
+        
+        tableView.reloadData()
     }
 }
 

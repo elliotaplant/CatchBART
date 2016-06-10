@@ -38,3 +38,9 @@ struct Destination {
         times = []
     }
 }
+
+enum ModeOfTransportation {
+    case Driving
+    case Walking
+    case Running
+}

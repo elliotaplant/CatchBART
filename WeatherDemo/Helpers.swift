@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension String {
     func replace(string:String, replacement:String) -> String {
@@ -54,4 +55,14 @@ infix operator ** { associativity left precedence 170 }
 
 func ** (num: Float, power: Float) -> Float{
     return pow(num, power)
+}
+
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        let newRed = CGFloat(red)/255
+        let newGreen = CGFloat(green)/255
+        let newBlue = CGFloat(blue)/255
+        
+        self.init(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+    }
 }
