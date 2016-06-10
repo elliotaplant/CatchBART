@@ -13,6 +13,7 @@
 		45A7C77E1D0768D900642247 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7C77D1D0768D900642247 /* Location.swift */; };
 		45A7C7801D0793EB00642247 /* DestinationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7C77F1D0793EB00642247 /* DestinationTableViewCell.swift */; };
 		45A7C7881D0A34AA00642247 /* MapPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7C7871D0A34AA00642247 /* MapPageViewController.swift */; };
+		45A7C78A1D0A43D500642247 /* KeyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7C7891D0A43D500642247 /* KeyPageViewController.swift */; };
 		45B103E81D0219FD00608A07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B103E71D0219FD00608A07 /* AppDelegate.swift */; };
 		45B103EA1D0219FD00608A07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B103E91D0219FD00608A07 /* ViewController.swift */; };
 		45B103ED1D0219FD00608A07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45B103EB1D0219FD00608A07 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		45A7C77D1D0768D900642247 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		45A7C77F1D0793EB00642247 /* DestinationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationTableViewCell.swift; sourceTree = "<group>"; };
 		45A7C7871D0A34AA00642247 /* MapPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPageViewController.swift; sourceTree = "<group>"; };
+		45A7C7891D0A43D500642247 /* KeyPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPageViewController.swift; sourceTree = "<group>"; };
 		45B103E41D0219FD00608A07 /* WeatherDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B103E71D0219FD00608A07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45B103E91D0219FD00608A07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				45A7C77D1D0768D900642247 /* Location.swift */,
 				45A7C77B1D0768A400642247 /* Helpers.swift */,
 				45B103EB1D0219FD00608A07 /* Main.storyboard */,
+				45A7C7891D0A43D500642247 /* KeyPageViewController.swift */,
 				45A7C7871D0A34AA00642247 /* MapPageViewController.swift */,
 				45A7C77F1D0793EB00642247 /* DestinationTableViewCell.swift */,
 				45B103EE1D0219FD00608A07 /* Assets.xcassets */,
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45A7C7881D0A34AA00642247 /* MapPageViewController.swift in Sources */,
+				45A7C78A1D0A43D500642247 /* KeyPageViewController.swift in Sources */,
 				45B103EA1D0219FD00608A07 /* ViewController.swift in Sources */,
 				45B103E81D0219FD00608A07 /* AppDelegate.swift in Sources */,
 				45A7C77A1D07682100642247 /* BasicStructs.swift in Sources */,

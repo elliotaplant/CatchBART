@@ -119,7 +119,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         if time != "" {
             label.layer.borderWidth = 1
-            label.layer.borderColor = UIColor.lightGrayColor().CGColor
+            label.layer.borderColor = UIColor.blackColor().CGColor
             
             if time.intValue < travelTimes.running {
                 label.layer.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.2).CGColor
