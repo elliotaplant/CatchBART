@@ -35,8 +35,8 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView contentMode="scaleToFill" misplaced="YES" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Bfo-jh-zpC">
-                                        <rect key="frame" x="174" y="52" width="258" height="30"/>
+                                    <stackView contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Bfo-jh-zpC">
+                                        <rect key="frame" x="171.5" y="52" width="258" height="30"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTT-Ac-lZ0">
                                                 <rect key="frame" x="0.0" y="0.0" width="82" height="30"/>
