@@ -31,14 +31,14 @@
 			containerPortal = 45B103DC1D0219FD00608A07 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 45B103E31D0219FD00608A07;
-			remoteInfo = WeatherDemo;
+			remoteInfo = CatchBART;
 		};
 		45B104041D0219FD00608A07 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 45B103DC1D0219FD00608A07 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 45B103E31D0219FD00608A07;
-			remoteInfo = WeatherDemo;
+			remoteInfo = CatchBART;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -132,7 +132,7 @@
 				45B103F31D0219FD00608A07 /* Info.plist */,
 			);
 			name = CatchBART;
-			path = WeatherDemo;
+			path = CatchBART;
 			sourceTree = "<group>";
 		};
 		45B103FB1D0219FD00608A07 /* CatchBARTTests */ = {
@@ -142,7 +142,7 @@
 				45B103FE1D0219FD00608A07 /* Info.plist */,
 			);
 			name = CatchBARTTests;
-			path = WeatherDemoTests;
+			path = CatchBARTTests;
 			sourceTree = "<group>";
 		};
 		45B104061D0219FD00608A07 /* CatchBARTUITests */ = {
@@ -152,7 +152,7 @@
 				45B104091D0219FD00608A07 /* Info.plist */,
 			);
 			name = CatchBARTUITests;
-			path = WeatherDemoUITests;
+			path = CatchBARTUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +171,7 @@
 			dependencies = (
 			);
 			name = CatchBART;
-			productName = WeatherDemo;
+			productName = CatchBART;
 			productReference = 45B103E41D0219FD00608A07 /* CatchBART.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -189,7 +189,7 @@
 				45B103FA1D0219FD00608A07 /* PBXTargetDependency */,
 			);
 			name = CatchBARTTests;
-			productName = WeatherDemoTests;
+			productName = CatchBARTTests;
 			productReference = 45B103F81D0219FD00608A07 /* CatchBART.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -207,7 +207,7 @@
 				45B104051D0219FD00608A07 /* PBXTargetDependency */,
 			);
 			name = CatchBARTUITests;
-			productName = WeatherDemoUITests;
+			productName = CatchBARTUITests;
 			productReference = 45B104031D0219FD00608A07 /* CatchBART.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
@@ -471,9 +471,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = WeatherDemoTests/Info.plist;
+				INFOPLIST_FILE = CatchBARTTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.WeatherDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.CatchBARTTests;
 				PRODUCT_NAME = CatchBART;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CatchBART.app/CatchBART";
 			};
@@ -483,9 +483,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = WeatherDemoTests/Info.plist;
+				INFOPLIST_FILE = CatchBARTTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.WeatherDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.CatchBARTTests;
 				PRODUCT_NAME = CatchBART;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CatchBART.app/CatchBART";
 			};
@@ -494,9 +494,9 @@
 		45B104131D0219FD00608A07 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = WeatherDemoUITests/Info.plist;
+				INFOPLIST_FILE = CatchBARTUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.WeatherDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.CatchBARTUITests;
 				PRODUCT_NAME = CatchBART;
 				TEST_TARGET_NAME = CatchBART;
 			};
@@ -505,9 +505,9 @@
 		45B104141D0219FD00608A07 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = WeatherDemoUITests/Info.plist;
+				INFOPLIST_FILE = CatchBARTUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.WeatherDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.CatchBARTUITests;
 				PRODUCT_NAME = CatchBART;
 				TEST_TARGET_NAME = CatchBART;
 			};
