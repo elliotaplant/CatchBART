@@ -449,14 +449,14 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eyw-JV-AFc">
-                                <rect key="frame" x="20" y="411" width="240" height="189"/>
+                                <rect key="frame" x="20" y="391" width="240" height="209"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="jzL-Bq-FTm"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="system-map" translatesAutoresizingMaskIntoConstraints="NO" id="bAk-zD-kVU">
-                                <rect key="frame" x="131" y="74" width="340" height="340"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="system-map" translatesAutoresizingMaskIntoConstraints="NO" id="bAk-zD-kVU">
+                                <rect key="frame" x="146.5" y="74" width="307" height="307"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="HXh-Ui-Snv"/>
                                     <constraint firstAttribute="width" secondItem="bAk-zD-kVU" secondAttribute="height" multiplier="1:1" id="TXZ-1z-1Hh"/>
@@ -470,7 +470,7 @@
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GoK-vf-UCb">
-                                <rect key="frame" x="20" y="421" width="560" height="169"/>
+                                <rect key="frame" x="20" y="411" width="560" height="169"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Departure times color key" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djJ-k2-CY7">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="34"/>
@@ -495,7 +495,7 @@
                                                             <constraint firstAttribute="height" constant="35" id="gWU-Ig-7q9"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You'll probably miss this train" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ag-O4-WBB">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You'll probably miss this train" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6ag-O4-WBB">
                                                         <rect key="frame" x="45" y="5" width="260" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -523,7 +523,7 @@
                                                             <constraint firstAttribute="width" secondItem="f38-RX-j4R" secondAttribute="height" multiplier="1:1" id="ajr-yK-RV8"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can catch it if you hustle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Um8-sc-LtC">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can catch it if you hustle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Um8-sc-LtC">
                                                         <rect key="frame" x="45" y="5" width="260" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -551,7 +551,7 @@
                                                             <constraint firstAttribute="height" constant="35" id="VvV-ce-QLk"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No need to hurry" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOm-OK-sRK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No need to hurry for this one" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="IOm-OK-sRK">
                                                         <rect key="frame" x="45" y="5" width="260" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -578,8 +578,10 @@
                                     <constraint firstItem="JKP-N2-om2" firstAttribute="leading" secondItem="GoK-vf-UCb" secondAttribute="leading" id="8cq-f3-7wr"/>
                                     <constraint firstItem="djJ-k2-CY7" firstAttribute="top" secondItem="GoK-vf-UCb" secondAttribute="top" id="CwF-rW-kya"/>
                                     <constraint firstItem="djJ-k2-CY7" firstAttribute="top" secondItem="JKP-N2-om2" secondAttribute="bottom" id="D5G-To-Gcb"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JKP-N2-om2" secondAttribute="trailing" constant="20" id="Ir1-lr-gQh"/>
                                     <constraint firstAttribute="bottom" secondItem="JKP-N2-om2" secondAttribute="bottom" id="LGb-ev-07E"/>
                                     <constraint firstAttribute="trailing" secondItem="JKP-N2-om2" secondAttribute="trailing" id="Ohq-4h-SiH"/>
+                                    <constraint firstItem="JKP-N2-om2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GoK-vf-UCb" secondAttribute="leading" constant="20" id="SeT-50-9be"/>
                                     <constraint firstItem="djJ-k2-CY7" firstAttribute="top" secondItem="JKP-N2-om2" secondAttribute="bottom" constant="250" id="b22-6g-dsg"/>
                                     <constraint firstItem="JKP-N2-om2" firstAttribute="top" secondItem="GoK-vf-UCb" secondAttribute="top" constant="10" id="ceu-a8-6K7"/>
                                     <constraint firstItem="JKP-N2-om2" firstAttribute="leading" secondItem="GoK-vf-UCb" secondAttribute="leading" constant="128" id="gke-eM-KNb"/>
@@ -619,7 +621,7 @@
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="bAk-zD-kVU" secondAttribute="trailing" id="n9h-Mp-MJi"/>
                             <constraint firstItem="bAk-zD-kVU" firstAttribute="centerX" secondItem="Fjp-Fn-1UJ" secondAttribute="centerX" id="nOL-CY-jia"/>
                             <constraint firstItem="bAk-zD-kVU" firstAttribute="top" secondItem="D8T-Sv-wSw" secondAttribute="bottom" constant="10" id="oQ9-Ef-jTn"/>
-                            <constraint firstItem="ZjG-VS-sLC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GoK-vf-UCb" secondAttribute="bottom" constant="10" id="rE9-yF-5Lr"/>
+                            <constraint firstItem="ZjG-VS-sLC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GoK-vf-UCb" secondAttribute="bottom" constant="20" id="rE9-yF-5Lr"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
