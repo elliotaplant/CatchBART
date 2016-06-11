@@ -10,6 +10,7 @@
 		451E54C21D0C7EC700E5DD52 /* API.example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E54C11D0C7EC700E5DD52 /* API.example.swift */; };
 		451E54C41D0C835000E5DD52 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E54C31D0C835000E5DD52 /* API.swift */; };
 		45672C711D0C93ED0067AF8C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45672C701D0C93ED0067AF8C /* Default-568h@2x.png */; };
+		459F5B271D0C9DFB0081A4E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459F5B261D0C9DFB0081A4E4 /* Assets.xcassets */; };
 		45A7C7781D07610700642247 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7C7771D07610700642247 /* Parser.swift */; };
 		45A7C77A1D07682100642247 /* BasicStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7C7791D07682100642247 /* BasicStructs.swift */; };
 		45A7C77C1D0768A400642247 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7C77B1D0768A400642247 /* Helpers.swift */; };
@@ -19,7 +20,6 @@
 		45B103E81D0219FD00608A07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B103E71D0219FD00608A07 /* AppDelegate.swift */; };
 		45B103EA1D0219FD00608A07 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B103E91D0219FD00608A07 /* ViewController.swift */; };
 		45B103ED1D0219FD00608A07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45B103EB1D0219FD00608A07 /* Main.storyboard */; };
-		45B103EF1D0219FD00608A07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B103EE1D0219FD00608A07 /* Assets.xcassets */; };
 		45B103F21D0219FD00608A07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45B103F01D0219FD00608A07 /* LaunchScreen.storyboard */; };
 		45B103FD1D0219FD00608A07 /* CatchBARTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B103FC1D0219FD00608A07 /* CatchBARTTests.swift */; };
 		45B104081D0219FD00608A07 /* CatchBARTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B104071D0219FD00608A07 /* CatchBARTUITests.swift */; };
@@ -46,6 +46,7 @@
 		451E54C11D0C7EC700E5DD52 /* API.example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.example.swift; sourceTree = "<group>"; };
 		451E54C31D0C835000E5DD52 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = API.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		45672C701D0C93ED0067AF8C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		459F5B261D0C9DFB0081A4E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45A7C7771D07610700642247 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		45A7C7791D07682100642247 /* BasicStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BasicStructs.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		45A7C77B1D0768A400642247 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Helpers.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -56,7 +57,6 @@
 		45B103E71D0219FD00608A07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45B103E91D0219FD00608A07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		45B103EC1D0219FD00608A07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		45B103EE1D0219FD00608A07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B103F11D0219FD00608A07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45B103F31D0219FD00608A07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B103F81D0219FD00608A07 /* CatchBART.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatchBART.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,12 +126,11 @@
 				45A7C77B1D0768A400642247 /* Helpers.swift */,
 				45B103EB1D0219FD00608A07 /* Main.storyboard */,
 				45A7C7871D0A34AA00642247 /* MapPageViewController.swift */,
+				459F5B261D0C9DFB0081A4E4 /* Assets.xcassets */,
 				45A7C77F1D0793EB00642247 /* DestinationTableViewCell.swift */,
-				45B103EE1D0219FD00608A07 /* Assets.xcassets */,
 				45B103F01D0219FD00608A07 /* LaunchScreen.storyboard */,
 				45B103F31D0219FD00608A07 /* Info.plist */,
 			);
-			name = CatchBART;
 			path = CatchBART;
 			sourceTree = "<group>";
 		};
@@ -141,7 +140,6 @@
 				45B103FC1D0219FD00608A07 /* CatchBARTTests.swift */,
 				45B103FE1D0219FD00608A07 /* Info.plist */,
 			);
-			name = CatchBARTTests;
 			path = CatchBARTTests;
 			sourceTree = "<group>";
 		};
@@ -151,7 +149,6 @@
 				45B104071D0219FD00608A07 /* CatchBARTUITests.swift */,
 				45B104091D0219FD00608A07 /* Info.plist */,
 			);
-			name = CatchBARTUITests;
 			path = CatchBARTUITests;
 			sourceTree = "<group>";
 		};
@@ -262,7 +259,7 @@
 			files = (
 				45B103F21D0219FD00608A07 /* LaunchScreen.storyboard in Resources */,
 				45672C711D0C93ED0067AF8C /* Default-568h@2x.png in Resources */,
-				45B103EF1D0219FD00608A07 /* Assets.xcassets in Resources */,
+				459F5B271D0C9DFB0081A4E4 /* Assets.xcassets in Resources */,
 				45B103ED1D0219FD00608A07 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

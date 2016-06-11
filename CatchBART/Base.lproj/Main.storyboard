@@ -10,7 +10,7 @@
         <!--Nearest Station-->
         <scene sceneID="XvD-Rp-zAX">
             <objects>
-                <viewController id="9sc-3d-IrC" customClass="ViewController" customModule="WeatherDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9sc-3d-IrC" customClass="ViewController" customModule="CatchBART" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ttf-KP-ahw"/>
                         <viewControllerLayoutGuide type="bottom" id="KlU-0s-mno"/>
@@ -271,7 +271,7 @@
                                 <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DestinationTableViewCell" rowHeight="70" id="30x-ZQ-VxF" customClass="DestinationTableViewCell" customModule="WeatherDemo" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DestinationTableViewCell" rowHeight="70" id="30x-ZQ-VxF" customClass="DestinationTableViewCell" customModule="CatchBART" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="30x-ZQ-VxF" id="QVF-Ig-QxT">
@@ -439,7 +439,7 @@
         <!--Map-->
         <scene sceneID="wp5-Gh-JZB">
             <objects>
-                <viewController id="RqD-ev-ztX" customClass="MapPageViewController" customModule="WeatherDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RqD-ev-ztX" customClass="MapPageViewController" customModule="CatchBART" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D8T-Sv-wSw"/>
                         <viewControllerLayoutGuide type="bottom" id="ZjG-VS-sLC"/>
