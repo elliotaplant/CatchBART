@@ -12,23 +12,24 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // Properties:
-    var destinations = [Destination]()
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     let stationsInfoParser = StationsInfoParser()
     let stationEDTParser = StationEDTParser()
-    let locator = Locator()
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    let locator = Locator()
     var location = Coord(lat: 0, long: 0)
+    
     var bartStationsInfo = [String:Coord]()
     var stations = [Station]()
+    var destinations = [Destination]()
     var nearestStation = Station(name: "", abbr: "", coord: Coord(lat: 0, long: 0))
-    var travelTimes = TravelTimes(driving: 0, walking: 0, running: 0)
-    var currentModeOfTransportation = ModeOfTransportation.Walking
-    var travelTime = 0
-    var defaultColor = UIColor(red: 14, green: 122, blue: 254)
     
+    var currentModeOfTransportation = ModeOfTransportation.Walking
+    var travelTimes = TravelTimes(driving: 0, walking: 0, running: 0)
+    var travelTime = 0
+    
+    // View outlets
     @IBOutlet weak var drivingTime: UILabel!
     @IBOutlet weak var drivingMins: UILabel!
     @IBOutlet weak var drivingImage: UIImageView!
@@ -38,7 +39,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var walkingTime: UILabel!
     @IBOutlet weak var walkingMins: UILabel!
     @IBOutlet weak var walkingImage: UIImageView!
-
+    @IBOutlet weak var headerLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var headerView: UIView!
+    
+    // View actions
     @IBAction func drivingButtonAction(sender: AnyObject) {
         changeModeOfTransportation(ModeOfTransportation.Driving)
     }
@@ -49,47 +54,39 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         changeModeOfTransportation(ModeOfTransportation.Walking)
     }
     
-    @IBOutlet weak var headerLabel: UILabel!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var headerView: UIView!
-    
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(ViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
-        
-        return refreshControl
-    }()
-    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        // Add refresh controlls to tableview
         self.tableView.addSubview(self.refreshControl)
-        self.tableView.backgroundColor = UIColor.clearColor()
         
-        locator.viewController = self
-        appDelegate.viewController = self
-        
-        // get bart stations info
-        self.getBartStationsInfo()
-        
-        // get user location
-        self.getUserLocation()
-        
-        // Set up travel time indicaiton
+        // Initialize travel time indicaiton
         changeModeOfTransportation(ModeOfTransportation.Walking)
         
-        // MARK: - Header View styling
+        // Apply styles
+        self.tableView.backgroundColor = UIColor.clearColor()
         headerView.layer.zPosition = 1;
         headerView.layer.shadowColor = UIColor.blackColor().CGColor
         headerView.layer.shadowOpacity = 0.3
         headerView.layer.shadowOffset = CGSizeMake(0.0, 6.0)
         headerView.layer.shadowRadius = 3
+        
+        // Distribute references to this ViewController
+        locator.viewController = self
+        appDelegate.viewController = self
+        
+        // Begin API logic
+        self.getBartStationsInfo()
+        self.getUserLocation() // kicks off API action chain
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: - Table view data source
+    // TableView display
+    // ==============================================================================
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -99,11 +96,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        // Set up re-usable table cells
         let cellIdentifier = "DestinationTableViewCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! DestinationTableViewCell
-        // Fetches the appropriate meal for the data source layout.
+        
+        // Get appropriate destination to display
         let destination = destinations[indexPath.row]
         
+        // Fill out cell with destination values
         cell.nameLabel.text = destination.name
         setTimeLabel(cell.time0Label, time: destination.times[0], number: 0)
         setTimeLabel(cell.time1Label, time: destination.times[1], number: 1)
@@ -113,13 +114,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func setTimeLabel(label: UILabel, time: String, number: Int) {
+        
         label.text = time
+        
+        // First time is larger than the others
         label.layer.cornerRadius = number == 0 ? 47/2 : 26/2
         
         if time != "" {
             label.layer.borderWidth = 1
             label.layer.borderColor = UIColor.blackColor().CGColor
             
+            // Color code times based on travel time to station
             if time.intValue < travelTime {
                 label.layer.backgroundColor = UIColor.redColor().colorWithAlphaComponent(0.2).CGColor
             } else if time.intValue < travelTime + 5 {
@@ -128,13 +133,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 label.layer.backgroundColor = UIColor.greenColor().colorWithAlphaComponent(0.2).CGColor
             }
         } else {
+            
+            // Don't display non-existant times
             label.layer.borderWidth = 0
             label.layer.borderColor = UIColor.clearColor().CGColor
             label.layer.backgroundColor = UIColor.clearColor().CGColor
         }
     }
     
-    // Getting Station Info
+    // API Logic
+    // ==============================================================================
     func getBartStationsInfo() {
         self.stations = stationsInfoParser.getBartStationsInfo();
     }
@@ -145,8 +153,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func findNearestStationOuter(userLocation: Coord) {
         
+        // Use helper to find nearest station
         nearestStation = findNearestStation(userLocation, stations: stations, travelTimes: &travelTimes)
         
+        // Update UI with nearest station data
         headerLabel.text = nearestStation.name
         
         drivingTime.text = String(travelTimes.driving)
@@ -159,13 +169,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func getScheduleForStation(station: Station) {
+        
+        // Call bart API for station schedule
         destinations = stationEDTParser.getStationEDTs(station.abbr)
+        
+        // Update UI with nearest station name
         self.headerLabel.text = station.name
         tableView.reloadData()
         refreshControl.endRefreshing()
     }
     
     // Pull to refresh
+    // ==============================================================================
+    lazy var refreshControl: UIRefreshControl = {
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(ViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        
+        return refreshControl
+    }()
+    
     func handleRefresh(refreshControl: UIRefreshControl) {
         getUserLocation()
     }
@@ -174,6 +197,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func changeModeOfTransportation(mode: ModeOfTransportation) {
         currentModeOfTransportation = mode
         
+        // Reset all of the text colors on the header
         drivingTime.textColor = UIColor.blackColor()
         drivingMins.textColor = UIColor.blackColor()
         runningTime.textColor = UIColor.blackColor()
@@ -181,28 +205,30 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         walkingTime.textColor = UIColor.blackColor()
         walkingMins.textColor = UIColor.blackColor()
         
+        // Reset transportation icons
         walkingImage.image = UIImage(named: "Walking")
         runningImage.image = UIImage(named: "Running")
         drivingImage.image = UIImage(named: "Driving")
         
         switch mode {
-        case ModeOfTransportation.Walking:
-            travelTime = travelTimes.walking
-            walkingImage.image = UIImage(named: "one-man-walking-selected")
-            walkingTime.textColor = defaultColor
-            walkingMins.textColor = defaultColor
-        case ModeOfTransportation.Running:
-            travelTime = travelTimes.running
-            runningImage.image = UIImage(named: "man-sprinting-selected")
-            runningTime.textColor = defaultColor
-            runningMins.textColor = defaultColor
-        case ModeOfTransportation.Driving:
-            travelTime = travelTimes.driving
-            drivingImage.image = UIImage(named: "car-trip-selected")
-            drivingTime.textColor = defaultColor
-            drivingMins.textColor = defaultColor
+            case ModeOfTransportation.Walking:
+                travelTime = travelTimes.walking
+                walkingImage.image = UIImage(named: "one-man-walking-selected")
+                walkingTime.textColor = defaultColor
+                walkingMins.textColor = defaultColor
+            case ModeOfTransportation.Running:
+                travelTime = travelTimes.running
+                runningImage.image = UIImage(named: "man-sprinting-selected")
+                runningTime.textColor = defaultColor
+                runningMins.textColor = defaultColor
+            case ModeOfTransportation.Driving:
+                travelTime = travelTimes.driving
+                drivingImage.image = UIImage(named: "car-trip-selected")
+                drivingTime.textColor = defaultColor
+                drivingMins.textColor = defaultColor
         }
         
+        // Re-draw the table
         tableView.reloadData()
     }
     
