@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 extension String {
     func replace(string:String, replacement:String) -> String {
@@ -40,16 +41,21 @@ func findNearestStation(userLocation: Coord, stations: [Station], inout travelTi
         }
     }
     
-    travelTimes.driving = Int(max(3.554*log(leastDistance)/log(2.71828) + 5, 2))
-    travelTimes.walking = Int(max(15.275*leastDistance+5.12, 2))
-    travelTimes.running = max(travelTimes.running/2, 2)
-    
+    travelTimes.driving = Int(max(leastDistance * 0.007, 2))
+    travelTimes.walking = Int(max(leastDistance * 0.020, 2))
+    travelTimes.running = max(Int(Double(travelTimes.walking) * 0.72), 2)
     return nearestStation;
 }
 
 func distBetween(a: Coord, b: Coord) -> Float {
-    return (((a.lat - b.lat)**2 + (a.long - b.long)**2)**0.5)
+    let aloc = CLLocation(latitude: CLLocationDegrees(a.lat), longitude: CLLocationDegrees(a.long))
+    let bloc = CLLocation(latitude: CLLocationDegrees(b.lat), longitude: CLLocationDegrees(b.long))
+    
+    return Float(aloc.distanceFromLocation(bloc))
 }
+
+
+
 
 infix operator ** { associativity left precedence 170 }
 

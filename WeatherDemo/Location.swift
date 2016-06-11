@@ -13,6 +13,7 @@ class Locator: NSObject, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var userLocation = Coord(lat: 0, long: 0)
     var viewController : ViewController?
+    var locationAttempts = 0
     
     override init() {
         super.init()
@@ -29,17 +30,21 @@ class Locator: NSObject, CLLocationManagerDelegate {
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = manager.location as CLLocation? {
+            self.locationAttempts = 0
             self.locationManager.stopUpdatingLocation()
             userLocation.lat = Float(location.coordinate.latitude)
             userLocation.long = Float(location.coordinate.longitude)
             self.viewController!.findNearestStationOuter(userLocation)
+        } else if self.locationAttempts > 5 {
+            self.viewController?.setErrorMessage("Could not find location")
         } else {
+            self.locationAttempts += 1
             self.locationManager.requestLocation()
         }
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        print("Error: " + error.localizedDescription)
+        print("Location Error: " + error.localizedDescription)
     }
     
     
