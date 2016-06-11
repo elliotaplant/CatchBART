@@ -15,10 +15,11 @@ class StationsInfoParser: NSObject, NSXMLParserDelegate {
     var name = NSMutableString()
     var abbr = NSMutableString()
     var station = Station(name: "", abbr: "", coord: Coord(lat: 0, long: 0))
+    var api = API()
 
     func getBartStationsInfo() -> Array<Station> {
         stations = []
-        parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://api.bart.gov/api/stn.aspx?cmd=stns&key=Q44H-5655-9ALT-DWE9"))!)!
+        parser = NSXMLParser(contentsOfURL:(NSURL(string: api.baseUrl + "stn.aspx?cmd=stns&key=" + api.key))!)!
         parser.delegate = self
         parser.parse()
         return stations
@@ -57,10 +58,11 @@ class StationEDTParser: NSObject, NSXMLParserDelegate {
     var element = NSString()
     var name = NSMutableString()
     var destination = Destination(name: "", times: [])
+    var api = API()
     
     func getStationEDTs(stationAbbr: String) -> [Destination] {
         destinations.removeAll()
-        parser = NSXMLParser(contentsOfURL:(NSURL(string:"http://api.bart.gov/api/etd.aspx?cmd=etd&orig=" + stationAbbr + "&key=Q44H-5655-9ALT-DWE9"))!)!
+        parser = NSXMLParser(contentsOfURL:(NSURL(string: api.baseUrl + "etd.aspx?cmd=etd&orig=" + stationAbbr + "&key=" + api.key))!)!
         parser.delegate = self
         parser.parse()
         return destinations
