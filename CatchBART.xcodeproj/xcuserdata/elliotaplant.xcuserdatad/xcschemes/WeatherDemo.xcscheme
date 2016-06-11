@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "45B103E31D0219FD00608A07"
-               BuildableName = "WeatherDemo.app"
-               BlueprintName = "WeatherDemo"
-               ReferencedContainer = "container:WeatherDemo.xcodeproj">
+               BuildableName = "CatchBART.app"
+               BlueprintName = "CatchBART"
+               ReferencedContainer = "container:CatchBART.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "45B103F71D0219FD00608A07"
-               BuildableName = "WeatherDemoTests.xctest"
-               BlueprintName = "WeatherDemoTests"
-               ReferencedContainer = "container:WeatherDemo.xcodeproj">
+               BuildableName = "CatchBART.xctest"
+               BlueprintName = "CatchBARTTests"
+               ReferencedContainer = "container:CatchBART.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "45B104021D0219FD00608A07"
-               BuildableName = "WeatherDemoUITests.xctest"
-               BlueprintName = "WeatherDemoUITests"
-               ReferencedContainer = "container:WeatherDemo.xcodeproj">
+               BuildableName = "CatchBART.xctest"
+               BlueprintName = "CatchBARTUITests"
+               ReferencedContainer = "container:CatchBART.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "45B103E31D0219FD00608A07"
-            BuildableName = "WeatherDemo.app"
-            BlueprintName = "WeatherDemo"
-            ReferencedContainer = "container:WeatherDemo.xcodeproj">
+            BuildableName = "CatchBART.app"
+            BlueprintName = "CatchBART"
+            ReferencedContainer = "container:CatchBART.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "45B103E31D0219FD00608A07"
-            BuildableName = "WeatherDemo.app"
-            BlueprintName = "WeatherDemo"
-            ReferencedContainer = "container:WeatherDemo.xcodeproj">
+            BuildableName = "CatchBART.app"
+            BlueprintName = "CatchBART"
+            ReferencedContainer = "container:CatchBART.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +99,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "45B103E31D0219FD00608A07"
-            BuildableName = "WeatherDemo.app"
-            BlueprintName = "WeatherDemo"
-            ReferencedContainer = "container:WeatherDemo.xcodeproj">
+            BuildableName = "CatchBART.app"
+            BlueprintName = "CatchBART"
+            ReferencedContainer = "container:CatchBART.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

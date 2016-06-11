@@ -1,6 +1,6 @@
 //
 //  MapPageViewController.swift
-//  WeatherDemo
+//  CatchBART
 //
 //  Created by Elliot Plant on 6/9/16.
 //  Copyright © 2016 Elliot Plant. All rights reserved.

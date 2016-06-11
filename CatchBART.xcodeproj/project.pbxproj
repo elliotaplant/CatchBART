@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		451E54C21D0C7EC700E5DD52 /* API.example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E54C11D0C7EC700E5DD52 /* API.example.swift */; };
 		451E54C41D0C835000E5DD52 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E54C31D0C835000E5DD52 /* API.swift */; };
+		45672C711D0C93ED0067AF8C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45672C701D0C93ED0067AF8C /* Default-568h@2x.png */; };
 		45A7C7781D07610700642247 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7C7771D07610700642247 /* Parser.swift */; };
 		45A7C77A1D07682100642247 /* BasicStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7C7791D07682100642247 /* BasicStructs.swift */; };
 		45A7C77C1D0768A400642247 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7C77B1D0768A400642247 /* Helpers.swift */; };
@@ -20,8 +21,8 @@
 		45B103ED1D0219FD00608A07 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45B103EB1D0219FD00608A07 /* Main.storyboard */; };
 		45B103EF1D0219FD00608A07 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45B103EE1D0219FD00608A07 /* Assets.xcassets */; };
 		45B103F21D0219FD00608A07 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45B103F01D0219FD00608A07 /* LaunchScreen.storyboard */; };
-		45B103FD1D0219FD00608A07 /* WeatherDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B103FC1D0219FD00608A07 /* WeatherDemoTests.swift */; };
-		45B104081D0219FD00608A07 /* WeatherDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B104071D0219FD00608A07 /* WeatherDemoUITests.swift */; };
+		45B103FD1D0219FD00608A07 /* CatchBARTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B103FC1D0219FD00608A07 /* CatchBARTTests.swift */; };
+		45B104081D0219FD00608A07 /* CatchBARTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B104071D0219FD00608A07 /* CatchBARTUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,25 +44,26 @@
 
 /* Begin PBXFileReference section */
 		451E54C11D0C7EC700E5DD52 /* API.example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.example.swift; sourceTree = "<group>"; };
-		451E54C31D0C835000E5DD52 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		451E54C31D0C835000E5DD52 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = API.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		45672C701D0C93ED0067AF8C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		45A7C7771D07610700642247 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		45A7C7791D07682100642247 /* BasicStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicStructs.swift; sourceTree = "<group>"; };
-		45A7C77B1D0768A400642247 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		45A7C77D1D0768D900642247 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		45A7C77F1D0793EB00642247 /* DestinationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationTableViewCell.swift; sourceTree = "<group>"; };
+		45A7C7791D07682100642247 /* BasicStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BasicStructs.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		45A7C77B1D0768A400642247 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Helpers.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		45A7C77D1D0768D900642247 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Location.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		45A7C77F1D0793EB00642247 /* DestinationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DestinationTableViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		45A7C7871D0A34AA00642247 /* MapPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPageViewController.swift; sourceTree = "<group>"; };
-		45B103E41D0219FD00608A07 /* WeatherDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45B103E41D0219FD00608A07 /* CatchBART.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchBART.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45B103E71D0219FD00608A07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45B103E91D0219FD00608A07 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		45B103EC1D0219FD00608A07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45B103EE1D0219FD00608A07 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45B103F11D0219FD00608A07 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45B103F31D0219FD00608A07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45B103F81D0219FD00608A07 /* WeatherDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		45B103FC1D0219FD00608A07 /* WeatherDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDemoTests.swift; sourceTree = "<group>"; };
+		45B103F81D0219FD00608A07 /* CatchBART.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatchBART.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45B103FC1D0219FD00608A07 /* CatchBARTTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchBARTTests.swift; sourceTree = "<group>"; };
 		45B103FE1D0219FD00608A07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45B104031D0219FD00608A07 /* WeatherDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		45B104071D0219FD00608A07 /* WeatherDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDemoUITests.swift; sourceTree = "<group>"; };
+		45B104031D0219FD00608A07 /* CatchBART.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CatchBART.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45B104071D0219FD00608A07 /* CatchBARTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchBARTUITests.swift; sourceTree = "<group>"; };
 		45B104091D0219FD00608A07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,9 +95,10 @@
 		45B103DB1D0219FD00608A07 = {
 			isa = PBXGroup;
 			children = (
-				45B103E61D0219FD00608A07 /* WeatherDemo */,
-				45B103FB1D0219FD00608A07 /* WeatherDemoTests */,
-				45B104061D0219FD00608A07 /* WeatherDemoUITests */,
+				45672C701D0C93ED0067AF8C /* Default-568h@2x.png */,
+				45B103E61D0219FD00608A07 /* CatchBART */,
+				45B103FB1D0219FD00608A07 /* CatchBARTTests */,
+				45B104061D0219FD00608A07 /* CatchBARTUITests */,
 				45B103E51D0219FD00608A07 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,14 +106,14 @@
 		45B103E51D0219FD00608A07 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				45B103E41D0219FD00608A07 /* WeatherDemo.app */,
-				45B103F81D0219FD00608A07 /* WeatherDemoTests.xctest */,
-				45B104031D0219FD00608A07 /* WeatherDemoUITests.xctest */,
+				45B103E41D0219FD00608A07 /* CatchBART.app */,
+				45B103F81D0219FD00608A07 /* CatchBART.xctest */,
+				45B104031D0219FD00608A07 /* CatchBART.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		45B103E61D0219FD00608A07 /* WeatherDemo */ = {
+		45B103E61D0219FD00608A07 /* CatchBART */ = {
 			isa = PBXGroup;
 			children = (
 				45B103E71D0219FD00608A07 /* AppDelegate.swift */,
@@ -128,33 +131,36 @@
 				45B103F01D0219FD00608A07 /* LaunchScreen.storyboard */,
 				45B103F31D0219FD00608A07 /* Info.plist */,
 			);
+			name = CatchBART;
 			path = WeatherDemo;
 			sourceTree = "<group>";
 		};
-		45B103FB1D0219FD00608A07 /* WeatherDemoTests */ = {
+		45B103FB1D0219FD00608A07 /* CatchBARTTests */ = {
 			isa = PBXGroup;
 			children = (
-				45B103FC1D0219FD00608A07 /* WeatherDemoTests.swift */,
+				45B103FC1D0219FD00608A07 /* CatchBARTTests.swift */,
 				45B103FE1D0219FD00608A07 /* Info.plist */,
 			);
+			name = CatchBARTTests;
 			path = WeatherDemoTests;
 			sourceTree = "<group>";
 		};
-		45B104061D0219FD00608A07 /* WeatherDemoUITests */ = {
+		45B104061D0219FD00608A07 /* CatchBARTUITests */ = {
 			isa = PBXGroup;
 			children = (
-				45B104071D0219FD00608A07 /* WeatherDemoUITests.swift */,
+				45B104071D0219FD00608A07 /* CatchBARTUITests.swift */,
 				45B104091D0219FD00608A07 /* Info.plist */,
 			);
+			name = CatchBARTUITests;
 			path = WeatherDemoUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		45B103E31D0219FD00608A07 /* WeatherDemo */ = {
+		45B103E31D0219FD00608A07 /* CatchBART */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 45B1040C1D0219FD00608A07 /* Build configuration list for PBXNativeTarget "WeatherDemo" */;
+			buildConfigurationList = 45B1040C1D0219FD00608A07 /* Build configuration list for PBXNativeTarget "CatchBART" */;
 			buildPhases = (
 				45B103E01D0219FD00608A07 /* Sources */,
 				45B103E11D0219FD00608A07 /* Frameworks */,
@@ -164,14 +170,14 @@
 			);
 			dependencies = (
 			);
-			name = WeatherDemo;
+			name = CatchBART;
 			productName = WeatherDemo;
-			productReference = 45B103E41D0219FD00608A07 /* WeatherDemo.app */;
+			productReference = 45B103E41D0219FD00608A07 /* CatchBART.app */;
 			productType = "com.apple.product-type.application";
 		};
-		45B103F71D0219FD00608A07 /* WeatherDemoTests */ = {
+		45B103F71D0219FD00608A07 /* CatchBARTTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 45B1040F1D0219FD00608A07 /* Build configuration list for PBXNativeTarget "WeatherDemoTests" */;
+			buildConfigurationList = 45B1040F1D0219FD00608A07 /* Build configuration list for PBXNativeTarget "CatchBARTTests" */;
 			buildPhases = (
 				45B103F41D0219FD00608A07 /* Sources */,
 				45B103F51D0219FD00608A07 /* Frameworks */,
@@ -182,14 +188,14 @@
 			dependencies = (
 				45B103FA1D0219FD00608A07 /* PBXTargetDependency */,
 			);
-			name = WeatherDemoTests;
+			name = CatchBARTTests;
 			productName = WeatherDemoTests;
-			productReference = 45B103F81D0219FD00608A07 /* WeatherDemoTests.xctest */;
+			productReference = 45B103F81D0219FD00608A07 /* CatchBART.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		45B104021D0219FD00608A07 /* WeatherDemoUITests */ = {
+		45B104021D0219FD00608A07 /* CatchBARTUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 45B104121D0219FD00608A07 /* Build configuration list for PBXNativeTarget "WeatherDemoUITests" */;
+			buildConfigurationList = 45B104121D0219FD00608A07 /* Build configuration list for PBXNativeTarget "CatchBARTUITests" */;
 			buildPhases = (
 				45B103FF1D0219FD00608A07 /* Sources */,
 				45B104001D0219FD00608A07 /* Frameworks */,
@@ -200,9 +206,9 @@
 			dependencies = (
 				45B104051D0219FD00608A07 /* PBXTargetDependency */,
 			);
-			name = WeatherDemoUITests;
+			name = CatchBARTUITests;
 			productName = WeatherDemoUITests;
-			productReference = 45B104031D0219FD00608A07 /* WeatherDemoUITests.xctest */;
+			productReference = 45B104031D0219FD00608A07 /* CatchBART.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -229,7 +235,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 45B103DF1D0219FD00608A07 /* Build configuration list for PBXProject "WeatherDemo" */;
+			buildConfigurationList = 45B103DF1D0219FD00608A07 /* Build configuration list for PBXProject "CatchBART" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -242,9 +248,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				45B103E31D0219FD00608A07 /* WeatherDemo */,
-				45B103F71D0219FD00608A07 /* WeatherDemoTests */,
-				45B104021D0219FD00608A07 /* WeatherDemoUITests */,
+				45B103E31D0219FD00608A07 /* CatchBART */,
+				45B103F71D0219FD00608A07 /* CatchBARTTests */,
+				45B104021D0219FD00608A07 /* CatchBARTUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -255,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B103F21D0219FD00608A07 /* LaunchScreen.storyboard in Resources */,
+				45672C711D0C93ED0067AF8C /* Default-568h@2x.png in Resources */,
 				45B103EF1D0219FD00608A07 /* Assets.xcassets in Resources */,
 				45B103ED1D0219FD00608A07 /* Main.storyboard in Resources */,
 			);
@@ -298,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45B103FD1D0219FD00608A07 /* WeatherDemoTests.swift in Sources */,
+				45B103FD1D0219FD00608A07 /* CatchBARTTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,7 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45B104081D0219FD00608A07 /* WeatherDemoUITests.swift in Sources */,
+				45B104081D0219FD00608A07 /* CatchBARTUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,12 +322,12 @@
 /* Begin PBXTargetDependency section */
 		45B103FA1D0219FD00608A07 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 45B103E31D0219FD00608A07 /* WeatherDemo */;
+			target = 45B103E31D0219FD00608A07 /* CatchBART */;
 			targetProxy = 45B103F91D0219FD00608A07 /* PBXContainerItemProxy */;
 		};
 		45B104051D0219FD00608A07 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 45B103E31D0219FD00608A07 /* WeatherDemo */;
+			target = 45B103E31D0219FD00608A07 /* CatchBART */;
 			targetProxy = 45B104041D0219FD00608A07 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -437,10 +444,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
-				INFOPLIST_FILE = WeatherDemo/Info.plist;
+				INFOPLIST_FILE = CatchBART/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.WeatherDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.CatchBART;
+				PRODUCT_NAME = CatchBART;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -452,10 +459,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/**";
-				INFOPLIST_FILE = WeatherDemo/Info.plist;
+				INFOPLIST_FILE = CatchBART/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.WeatherDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.CatchBART;
+				PRODUCT_NAME = CatchBART;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -467,8 +474,8 @@
 				INFOPLIST_FILE = WeatherDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.WeatherDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeatherDemo.app/WeatherDemo";
+				PRODUCT_NAME = CatchBART;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CatchBART.app/CatchBART";
 			};
 			name = Debug;
 		};
@@ -479,8 +486,8 @@
 				INFOPLIST_FILE = WeatherDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.WeatherDemoTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeatherDemo.app/WeatherDemo";
+				PRODUCT_NAME = CatchBART;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CatchBART.app/CatchBART";
 			};
 			name = Release;
 		};
@@ -490,8 +497,8 @@
 				INFOPLIST_FILE = WeatherDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.WeatherDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = WeatherDemo;
+				PRODUCT_NAME = CatchBART;
+				TEST_TARGET_NAME = CatchBART;
 			};
 			name = Debug;
 		};
@@ -501,15 +508,15 @@
 				INFOPLIST_FILE = WeatherDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = elliotplant.WeatherDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = WeatherDemo;
+				PRODUCT_NAME = CatchBART;
+				TEST_TARGET_NAME = CatchBART;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		45B103DF1D0219FD00608A07 /* Build configuration list for PBXProject "WeatherDemo" */ = {
+		45B103DF1D0219FD00608A07 /* Build configuration list for PBXProject "CatchBART" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45B1040A1D0219FD00608A07 /* Debug */,
@@ -518,7 +525,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45B1040C1D0219FD00608A07 /* Build configuration list for PBXNativeTarget "WeatherDemo" */ = {
+		45B1040C1D0219FD00608A07 /* Build configuration list for PBXNativeTarget "CatchBART" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45B1040D1D0219FD00608A07 /* Debug */,
@@ -527,7 +534,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45B1040F1D0219FD00608A07 /* Build configuration list for PBXNativeTarget "WeatherDemoTests" */ = {
+		45B1040F1D0219FD00608A07 /* Build configuration list for PBXNativeTarget "CatchBARTTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45B104101D0219FD00608A07 /* Debug */,
@@ -536,7 +543,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45B104121D0219FD00608A07 /* Build configuration list for PBXNativeTarget "WeatherDemoUITests" */ = {
+		45B104121D0219FD00608A07 /* Build configuration list for PBXNativeTarget "CatchBARTUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45B104131D0219FD00608A07 /* Debug */,
