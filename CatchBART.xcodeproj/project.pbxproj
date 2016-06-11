@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		451E54C21D0C7EC700E5DD52 /* API.example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E54C11D0C7EC700E5DD52 /* API.example.swift */; };
 		451E54C41D0C835000E5DD52 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451E54C31D0C835000E5DD52 /* API.swift */; };
-		45672C711D0C93ED0067AF8C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 45672C701D0C93ED0067AF8C /* Default-568h@2x.png */; };
 		459F5B271D0C9DFB0081A4E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 459F5B261D0C9DFB0081A4E4 /* Assets.xcassets */; };
 		45A7C7781D07610700642247 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7C7771D07610700642247 /* Parser.swift */; };
 		45A7C77A1D07682100642247 /* BasicStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A7C7791D07682100642247 /* BasicStructs.swift */; };
@@ -45,7 +44,6 @@
 /* Begin PBXFileReference section */
 		451E54C11D0C7EC700E5DD52 /* API.example.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.example.swift; sourceTree = "<group>"; };
 		451E54C31D0C835000E5DD52 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = API.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		45672C701D0C93ED0067AF8C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		459F5B261D0C9DFB0081A4E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		45A7C7771D07610700642247 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		45A7C7791D07682100642247 /* BasicStructs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BasicStructs.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -95,7 +93,6 @@
 		45B103DB1D0219FD00608A07 = {
 			isa = PBXGroup;
 			children = (
-				45672C701D0C93ED0067AF8C /* Default-568h@2x.png */,
 				45B103E61D0219FD00608A07 /* CatchBART */,
 				45B103FB1D0219FD00608A07 /* CatchBARTTests */,
 				45B104061D0219FD00608A07 /* CatchBARTUITests */,
@@ -258,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				45B103F21D0219FD00608A07 /* LaunchScreen.storyboard in Resources */,
-				45672C711D0C93ED0067AF8C /* Default-568h@2x.png in Resources */,
 				459F5B271D0C9DFB0081A4E4 /* Assets.xcassets in Resources */,
 				45B103ED1D0219FD00608A07 /* Main.storyboard in Resources */,
 			);
